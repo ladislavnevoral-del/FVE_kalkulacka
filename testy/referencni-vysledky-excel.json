@@ -1,0 +1,2350 @@
+{
+"A": {
+"D9": 70,
+"D11": 37.044,
+"D12": 2,
+"D26": 41.16,
+"D27": 84,
+"D28": 28.66,
+"D29": 6,
+"D30": 6,
+"D31": 2,
+"D36": 53.95,
+"D37": 1668.21130676552,
+"D38": 750,
+"D39": 1,
+"D47": 4926870.71129123,
+"F47": 5518095.19664618,
+"M46": 406611.612580805,
+"M45": 5333482.32387203,
+"H54": 615000,
+"H55": 280000,
+"H56": 700000,
+"H57": 25000,
+"E53": 1620000,
+"M80": 1620000,
+"E57": 1377000,
+"D59": 4126870.71129123,
+"F59": 4718095.19664618,
+"W22": 0.671282798833819,
+"G15": 6285.71428571429,
+"E16": 165,
+"E17": 6285.71428571429,
+"E5x": 0.871072051056338,
+"batH": [
+20.48,
+4,
+5.12
+],
+"batI": [
+8.18,
+2,
+4.09
+],
+"batJ": [
+null,
+null,
+null
+],
+"CAE4": 4,
+"CAF4": 1,
+"CAG4": 1,
+"CAI4": 2,
+"CAJ4": 1,
+"CJ271": 3018915.87701668,
+"VL39": 37.044,
+"VL40": 136.03386,
+"VL41": 46.5183688,
+"VL42": 0,
+"VL43": 28.96614,
+"VL44": 8.07786,
+"VL46": 7.4316312,
+"VL49": 0,
+"VL51": 165,
+"VL52": 53.95,
+"VL53": 0,
+"VL57": 1037142.85714286,
+"VL60": 182072.88,
+"VL61": 12397.5311955514,
+"VL62": 0,
+"VL67": 0,
+"VL70": 0,
+"VL79": 0,
+"VL80": 24.2210062281142,
+"VL81": 0,
+"VL82": 0,
+"VL83": 24.2612496556191,
+"VL84": 0,
+"VL85": 5182.24228571429,
+"VL91": 2601.04114285714,
+"OF26": 0.166237822333866,
+"OF30": 0.833762177666134,
+"OF148": 9.77975614954943,
+"OF139": 2473758.03594218,
+"OF141": 106870.331904,
+"OF142": 125938.176,
+"OF140": 2261348.8128,
+"OF146": 394813.44,
+"OJ154": 194470.411195551,
+"OJ162": 2778.14873136502,
+"items": {
+"10|1|konstrukce plochá VZ střecha 15°": [
+84,
+159600
+],
+"11|2|konstrukce plochá J střecha 15°": [
+84,
+0
+],
+"12|3|přitížení plochá střecha": [
+84,
+33600
+],
+"13|4|fix profil": [
+0,
+0
+],
+"14|5|kladečský plán fixprofilu": [
+0,
+0
+],
+"15|6|montáž fix profilu": [
+0,
+0
+],
+"16|7|solatech": [
+0,
+0
+],
+"17|8|montáž solatech": [
+0,
+0
+],
+"18|9|montáž plochá střecha (včetně výškové techniky a práce)": [
+41.16,
+218148
+],
+"24|10|konstrukce šikmé střechy jedna rovina": [
+84,
+0
+],
+"25|11|montáž šikmá střecha (včetně výškové techniky a práce)": [
+41.16,
+0
+],
+"31|12|konstrukce fasády": [
+0,
+0
+],
+"32|13|montáž fasáda (včetně výškové techniky a práce)": [
+0,
+0
+],
+"33|14|lešení fasáda": [
+0,
+0
+],
+"39|15|panel AIKO-A490-MAH-54 DW 2P+  490 Wp": [
+84,
+197568
+],
+"45|16|kabelový žlab víko": [
+72,
+48960
+],
+"46|17|kabelový žlab: 20 % délky  120/50 + 80 % délky 50/62": [
+72,
+27360
+],
+"52|18|montáž rozvaděče DC na střeše": [
+1,
+10000
+],
+"53|19|konstrukce pro rozvaděč - střecha": [
+1,
+5775
+],
+"54|20|rozvaděč R-DC dle ČSN": [
+41.16,
+82320
+],
+"55|None|rozvaděč skříň": [
+1,
+10500
+],
+"60|21|zemnění od panelů pospojení s hromosvodem ALMgSi": [
+84,
+12600
+],
+"61|22|zemnění mění - propojení konstrukce (panely) CYA 16": [
+84,
+0
+],
+"67|23|úprava hromosvodu": [
+1,
+50000
+],
+"73|24|DC vodič D 6 mm string": [
+1884,
+52752
+],
+"79|25|svod = DC vodič ( počet stringu) ; cyky 3x 1,5 ; uv chránička 63/110 ; úvazek čerpadla ; svod trubka + kotvení": [
+25,
+19375
+],
+"80|26|cyky 3x1,5": [
+37.5,
+937.5
+],
+"81|27|zemnění k rozvaděči CYA 16": [
+37.5,
+2062.5
+],
+"82|28|montáž svod (včetně výškové techniky a práce) - výška budovy": [
+25,
+25000
+],
+"83|29|jádrové vrtání - obvodová stěna": [
+2,
+5000
+],
+"84|30|svod okap trubka": [
+25,
+0
+],
+"85|31|žlab ve fasádě": [
+25,
+0
+],
+"91|32|rozvaděč R-FVE-DC dle ČSN": [
+41.16,
+61740
+],
+"92|33|R-FVE-AC rozvaděč střídače + rozpad bod (na kW),  dle ČSN (plechová bedna)": [
+41.16,
+57624
+],
+"93|34|montáž technologie": [
+2,
+120000
+],
+"99|35|Deye 10 - Hybrid HV Inverter - střídač": [
+1,
+36362.718
+],
+"100|36|Deye 12 - Hybrid HV Inverter - střídač": [
+0,
+0
+],
+"101|37|Deye 20 - Hybrid HV Inverter - střídač": [
+1,
+56919.681
+],
+"102|38|Deye 30 - Hybrid HV Inverter - střídač": [
+0,
+0
+],
+"103|39|Deye 40 - Hybrid HV Inverter - střídač": [
+0,
+0
+],
+"104|40|Deye 50 - Hybrid HV Inverter - střídač": [
+0,
+0
+],
+"105|41|Energy Meter": [
+2,
+5312
+],
+"111|42|Deye HV Battery BOS-G-PACK 5.1 - počet článků baterií": [
+4,
+124000
+],
+"112|43|Deye HV Control Box BOS-G-PDU-2 - BMS": [
+1,
+17000
+],
+"113|44|Deye HV-Rack for BOS-G (9 nebo 13 layers) - box na baterie": [
+1,
+5389.314
+],
+"114|45|Deye HV Battery GB-L - počet článků baterií": [
+2,
+53429.103
+],
+"115|46|Deye HV Control Box GB-LB + Base - BMS": [
+1,
+16383.255
+],
+"117|47|Deye - BOS-G EP Cable  5.0": [
+1,
+1e-08
+],
+"118|48|Deye - BOS-G EN Cable  5.0": [
+1,
+1e-08
+],
+"124|49|sněhový hasící přístroj s minimální hasící schopností 55B": [
+1,
+1200
+],
+"125|50|dveře do místnosti s technologií FVE, s požární odolností min. El 30 DP3": [
+1,
+35000
+],
+"126|51|požární ucpávky": [
+1,
+14000
+],
+"127|52|protipožární hasicí koule Fireball": [
+1,
+386
+],
+"128|53|požarní prostup roxtex": [
+1,
+9000
+],
+"130|54|stop tačítko, montáž, vedení": [
+4,
+9200
+],
+"136|55|rozvaděč podružný bytový ": [
+73,
+365000
+],
+"137|56|montáž podružný rozvaděču": [
+73,
+131400
+],
+"138|57| výměna svorkovnice bytu": [
+73,
+29200
+],
+"139|58|výměna stoupačkové svorkovnice": [
+32,
+51840
+],
+"140|59|datový kabel  UTP pro podružné elektroměry": [
+74,
+1480
+],
+"146|60|elektroměr spodní vývody": [
+0,
+0
+],
+"147|61|kryt jističe": [
+0,
+0
+],
+"148|62|montáž ": [
+0,
+0
+],
+"149|63|datový kabel  UTP pro podružné elektroměry": [
+0,
+0
+],
+"155|64|úprava rozvaděče pro státní model, měření B ": [
+0,
+0
+],
+"161|65|propojení HDS - JOM AYKY 4x95 - 5 bm (materiál)": [
+2,
+5600
+],
+"162|66|trasa HDS - JOM - 5 bm (práce)": [
+2,
+12000
+],
+"163|67|propojení FVE AYKY 4x50 (propojení FVE a JOM) + FTP CAT 5 + 5x1,5 CYKY J + UTP": [
+120,
+33600
+],
+"164|68|propojení JOM-FVE trasa": [
+120,
+93600
+],
+"165|69|vedení AC kabel H07RN-F 5Gx25": [
+10,
+7750
+],
+"166|70|propojení HDV1 AYKY 4x25 (propojení HDV vchodu JOM) + FTP CAT 5 + 5x1,5 CYKY J + UTP (materiál)": [
+24,
+6000
+],
+"167|71|propojení JOM-HDV1  trasa (práce)": [
+24,
+18720
+],
+"168|72|propojení HDV2 AYKY 4x25 (propojení HDV vchodu JOM) + FTP CAT 5 + 5x1,5 CYKY J + UTP (materiál)": [
+54,
+13500
+],
+"169|73|propojení JOM-HDV2 trasa (práce)": [
+30,
+23400
+],
+"170|74|propojení HDV3 AYKY 4x25 (propojení HDV vchodu JOM) + FTP CAT 5 + 5x1,5 CYKY J + UTP (materiál)": [
+0,
+0
+],
+"171|75|propojení JOM-HDV3 trasa (práce)": [
+0,
+0
+],
+"172|76|propojení HDV4 AYKY 4x25 (propojení HDV vchodu JOM) + FTP CAT 5 + 5x1,5 CYKY J + UTP (materiál)": [
+0,
+0
+],
+"173|77|propojení JOM-HDV4 trasa (práce)": [
+0,
+0
+],
+"174|78|průraz - vnitřní stěny": [
+8,
+1600
+],
+"175|79|stoupačkové vedení do AYKY 4x50, do 5 m / patro": [
+160,
+160000
+],
+"176|80|montáž stoupačkového vedení do AYKY 4x50 ": [
+32,
+38400
+],
+"177|81|demontáž staré elektroinstalace": [
+160,
+16000
+],
+"183|82|JOM rozvaděč, dle ČSN, PPDS": [
+2,
+130000
+],
+"184|83|montáž JOM": [
+2,
+40000
+],
+"190|84|separatista paušál": [
+70,
+39200
+],
+"197|85|optimalizace spotřeby Chytrá zásuvka ": [
+70,
+0
+],
+"198|86|optimalizace spotřeby Brána": [
+2,
+0
+],
+"199|87|optimalizace spotřeby Relé": [
+5,
+0
+],
+"200|88|optimalizace spotřeby detektor kouře": [
+2,
+0
+],
+"201|89|optimalizace spotřeby spuštění ": [
+70,
+0
+],
+"202|90|optimalizace spotřeby zřízení přístupů": [
+70,
+0
+],
+"203|91|optimalizace spotřeby Opakovač": [
+null,
+0
+],
+"208|92|wallbox": [
+1,
+75000
+],
+"214|93|revize JOM": [
+2,
+7280
+],
+"215|94|revize FVE": [
+2,
+39520
+],
+"216|95|revize HDV": [
+1,
+11600
+],
+"217|96|revize hromosvodu": [
+1,
+6300
+],
+"218|97|servisní prohlídka": [
+1,
+0
+],
+"223|98|spuštění, nastavení systému FVE": [
+1,
+0
+],
+"224|99|zřízení řístupupových údaju a nastavení app odečty": [
+1,
+0
+],
+"225|100|spuštění, nastavení systému": [
+1,
+0
+],
+"226|101|servis app": [
+1,
+0
+],
+"232|102|projekt FVE": [
+1,
+76593.137254902
+],
+"234|103|administrace NZÚ": [
+1,
+22977.9411764706
+],
+"235|104|administrace JOM": [
+1,
+0
+],
+"236|105|administrace FVE": [
+1,
+0
+],
+"242|106|zřízení staveniště": [
+1,
+0
+],
+"248|107|test položka": [
+1,
+10000
+],
+"249|108|Vlastní položka 2": [
+1,
+0
+],
+"251|109|TUV 750 litrů instalaterská část": [
+1,
+142000
+],
+"252|110|TUV 750 litrů Elektro část s WATTROUTEREM na počet jomek": [
+2,
+74000
+],
+"253|111|TUV 750 litrů Elektro část na střídač ": [
+null,
+0
+],
+"254|112|TUV 1 500 litrů": [
+0,
+0
+],
+"255|113|TUV 1500 litrů Elektro část s WATTROUTEREM": [
+0,
+0
+],
+"256|114|TUV 1500 litrů Elektro část na střídač": [
+null,
+0
+],
+"257|115|TUV 2250 litrů instalaterská část": [
+0,
+0
+],
+"258|116|TUV 2250 litrů Elektro část s WATTROUTEREM": [
+0,
+0
+],
+"259|117|TUV 2250 litrů Elektro část na střídač": [
+null,
+0
+],
+"260|118|TUV 3000 litrů instalaterská část": [
+0,
+0
+],
+"261|119|TUV 3000 litrů Elektro část s WATTROUTEREM": [
+0,
+0
+],
+"262|120|TUV 3000 litrů Elektro část na střídač": [
+null,
+0
+],
+"263|121|TUV 3750 litrů instalaterská část": [
+0,
+0
+],
+"264|122|TUV 3750 litrů Elektro část s WATTROUTEREM": [
+0,
+0
+],
+"265|123|TUV 3750 litrů Elektro část na střídač": [
+null,
+0
+]
+}
+},
+"B": {
+"D9": 45,
+"D11": 33.075,
+"D12": 1,
+"D26": 36.75,
+"D27": 75,
+"D28": 25.6,
+"D29": 5,
+"D30": 5,
+"D31": 1,
+"D36": null,
+"D37": "#VALUE!",
+"D38": null,
+"D39": null,
+"D47": 2433241.80782963,
+"F47": 2725230.82476918,
+"M46": 409941.213146405,
+"M45": 2843183.02097603,
+"H54": 540000,
+"H55": 250000,
+"H56": 450000,
+"H57": 0,
+"E53": 1240000,
+"M80": 1240000,
+"E57": 1054000,
+"D59": 2133241.80782963,
+"F59": 2425230.82476918,
+"W22": 0.696598639455782,
+"G15": 7000,
+"E16": 20,
+"E17": 7000,
+"E5x": 2.64195965375587,
+"batH": [
+25.6,
+5,
+5.12
+],
+"batI": [
+null,
+null,
+null
+],
+"batJ": [
+null,
+null,
+null
+],
+"CAE4": 5,
+"CAF4": 1,
+"CAG4": 1,
+"CAI4": 0,
+"CAJ4": 0,
+"CJ271": 1901044.90675835,
+"VL39": 33.075,
+"VL40": 9.00281561032864,
+"VL41": 0,
+"VL42": 69.6884096384977,
+"VL43": 10.9971843896714,
+"VL44": 22.0778156103286,
+"VL46": 0,
+"VL49": 20.3115903615023,
+"VL51": 20,
+"VL52": 0,
+"VL53": 90,
+"VL57": 140000,
+"VL60": 76980.2907276996,
+"VL61": 0,
+"VL62": 182804.313253521,
+"VL67": 0,
+"VL70": 0,
+"VL79": 0,
+"VL80": 0,
+"VL81": 9.30391709548879,
+"VL82": 0,
+"VL83": 0,
+"VL84": 9.33554486140564,
+"VL85": 3150.98546361502,
+"VL91": 1710.67312728221,
+"OF26": 0.28462522501067,
+"OF30": 0.71537477498933,
+"OF148": 29.9006435414896,
+"OF139": 2498463.32806518,
+"OF141": 103296.904704,
+"OF142": 123470.592,
+"OF140": 0,
+"OF146": 0,
+"OJ154": 259784.603981221,
+"OJ162": 5772.99119958268,
+"items": {
+"10|1|konstrukce plochá VZ střecha 15°": [
+65,
+0
+],
+"11|2|konstrukce plochá J střecha 15°": [
+65,
+136500
+],
+"12|3|přitížení plochá střecha": [
+-10,
+-4000
+],
+"13|4|fix profil": [
+75,
+32700
+],
+"14|5|kladečský plán fixprofilu": [
+1,
+9000
+],
+"15|6|montáž fix profilu": [
+75,
+65250
+],
+"16|7|solatech": [
+0,
+0
+],
+"17|8|montáž solatech": [
+0,
+0
+],
+"18|9|montáž plochá střecha (včetně výškové techniky a práce)": [
+31.85,
+168805
+],
+"24|10|konstrukce šikmé střechy jedna rovina": [
+65,
+0
+],
+"25|11|montáž šikmá střecha (včetně výškové techniky a práce)": [
+31.85,
+0
+],
+"31|12|konstrukce fasády": [
+10,
+68400
+],
+"32|13|montáž fasáda (včetně výškové techniky a práce)": [
+4.9,
+18620
+],
+"33|14|lešení fasáda": [
+100,
+99600
+],
+"39|15|panel AIKO-A490-MAH-54 DW 2P+  490 Wp": [
+75,
+176400
+],
+"45|16|kabelový žlab víko": [
+51,
+34680
+],
+"46|17|kabelový žlab: 20 % délky  120/50 + 80 % délky 50/62": [
+51,
+19380
+],
+"52|18|montáž rozvaděče DC na střeše": [
+1,
+10000
+],
+"53|19|konstrukce pro rozvaděč - střecha": [
+1,
+5775
+],
+"54|20|rozvaděč R-DC dle ČSN": [
+36.75,
+73500
+],
+"55|None|rozvaděč skříň": [
+1,
+10500
+],
+"60|21|zemnění od panelů pospojení s hromosvodem ALMgSi": [
+75,
+11250
+],
+"61|22|zemnění mění - propojení konstrukce (panely) CYA 16": [
+75,
+0
+],
+"67|23|úprava hromosvodu": [
+1,
+50000
+],
+"73|24|DC vodič D 6 mm string": [
+1090,
+30520
+],
+"79|25|svod = DC vodič ( počet stringu) ; cyky 3x 1,5 ; uv chránička 63/110 ; úvazek čerpadla ; svod trubka + kotvení": [
+18,
+13950
+],
+"80|26|cyky 3x1,5": [
+27,
+675
+],
+"81|27|zemnění k rozvaděči CYA 16": [
+27,
+1485
+],
+"82|28|montáž svod (včetně výškové techniky a práce) - výška budovy": [
+18,
+18000
+],
+"83|29|jádrové vrtání - obvodová stěna": [
+1,
+2500
+],
+"84|30|svod okap trubka": [
+18,
+0
+],
+"85|31|žlab ve fasádě": [
+18,
+0
+],
+"91|32|rozvaděč R-FVE-DC dle ČSN": [
+36.75,
+55125
+],
+"92|33|R-FVE-AC rozvaděč střídače + rozpad bod (na kW),  dle ČSN (plechová bedna)": [
+36.75,
+51450
+],
+"93|34|montáž technologie": [
+1,
+60000
+],
+"99|35|Deye 10 - Hybrid HV Inverter - střídač": [
+0,
+0
+],
+"100|36|Deye 12 - Hybrid HV Inverter - střídač": [
+0,
+0
+],
+"101|37|Deye 20 - Hybrid HV Inverter - střídač": [
+0,
+0
+],
+"102|38|Deye 30 - Hybrid HV Inverter - střídač": [
+1,
+102844.0665
+],
+"103|39|Deye 40 - Hybrid HV Inverter - střídač": [
+0,
+0
+],
+"104|40|Deye 50 - Hybrid HV Inverter - střídač": [
+0,
+0
+],
+"105|41|Energy Meter": [
+1,
+2656
+],
+"111|42|Deye HV Battery BOS-G-PACK 5.1 - počet článků baterií": [
+5,
+155000
+],
+"112|43|Deye HV Control Box BOS-G-PDU-2 - BMS": [
+1,
+17000
+],
+"113|44|Deye HV-Rack for BOS-G (9 nebo 13 layers) - box na baterie": [
+1,
+5389.314
+],
+"114|45|Deye HV Battery GB-L - počet článků baterií": [
+0,
+0
+],
+"115|46|Deye HV Control Box GB-LB + Base - BMS": [
+0,
+0
+],
+"117|47|Deye - BOS-G EP Cable  5.0": [
+1,
+1e-08
+],
+"118|48|Deye - BOS-G EN Cable  5.0": [
+1,
+1e-08
+],
+"124|49|sněhový hasící přístroj s minimální hasící schopností 55B": [
+1,
+1200
+],
+"125|50|dveře do místnosti s technologií FVE, s požární odolností min. El 30 DP3": [
+1,
+35000
+],
+"126|51|požární ucpávky": [
+1,
+14000
+],
+"127|52|protipožární hasicí koule Fireball": [
+1,
+386
+],
+"128|53|požarní prostup roxtex": [
+1,
+9000
+],
+"130|54|stop tačítko, montáž, vedení": [
+3,
+6900
+],
+"136|55|rozvaděč podružný bytový ": [
+0,
+0
+],
+"137|56|montáž podružný rozvaděču": [
+0,
+0
+],
+"138|57| výměna svorkovnice bytu": [
+0,
+0
+],
+"139|58|výměna stoupačkové svorkovnice": [
+0,
+0
+],
+"140|59|datový kabel  UTP pro podružné elektroměry": [
+0,
+0
+],
+"146|60|elektroměr spodní vývody": [
+48,
+0
+],
+"147|61|kryt jističe": [
+48,
+0
+],
+"148|62|montáž ": [
+48,
+0
+],
+"149|63|datový kabel  UTP pro podružné elektroměry": [
+29,
+0
+],
+"155|64|úprava rozvaděče pro státní model, měření B ": [
+3,
+0
+],
+"161|65|propojení HDS - JOM AYKY 4x95 - 5 bm (materiál)": [
+1,
+0
+],
+"162|66|trasa HDS - JOM - 5 bm (práce)": [
+1,
+0
+],
+"163|67|propojení FVE AYKY 4x50 (propojení FVE a JOM) + FTP CAT 5 + 5x1,5 CYKY J + UTP": [
+40,
+11200
+],
+"164|68|propojení JOM-FVE trasa": [
+40,
+31200
+],
+"165|69|vedení AC kabel H07RN-F 5Gx25": [
+5,
+3875
+],
+"166|70|propojení HDV1 AYKY 4x25 (propojení HDV vchodu JOM) + FTP CAT 5 + 5x1,5 CYKY J + UTP (materiál)": [
+11,
+0
+],
+"167|71|propojení JOM-HDV1  trasa (práce)": [
+11,
+0
+],
+"168|72|propojení HDV2 AYKY 4x25 (propojení HDV vchodu JOM) + FTP CAT 5 + 5x1,5 CYKY J + UTP (materiál)": [
+37.6666666666667,
+0
+],
+"169|73|propojení JOM-HDV2 trasa (práce)": [
+26.6666666666667,
+0
+],
+"170|74|propojení HDV3 AYKY 4x25 (propojení HDV vchodu JOM) + FTP CAT 5 + 5x1,5 CYKY J + UTP (materiál)": [
+51,
+0
+],
+"171|75|propojení JOM-HDV3 trasa (práce)": [
+13.3333333333333,
+0
+],
+"172|76|propojení HDV4 AYKY 4x25 (propojení HDV vchodu JOM) + FTP CAT 5 + 5x1,5 CYKY J + UTP (materiál)": [
+0,
+0
+],
+"173|77|propojení JOM-HDV4 trasa (práce)": [
+0,
+0
+],
+"174|78|průraz - vnitřní stěny": [
+4,
+800
+],
+"175|79|stoupačkové vedení do AYKY 4x50, do 5 m / patro": [
+0,
+0
+],
+"176|80|montáž stoupačkového vedení do AYKY 4x50 ": [
+0,
+0
+],
+"177|81|demontáž staré elektroinstalace": [
+0,
+0
+],
+"183|82|JOM rozvaděč, dle ČSN, PPDS": [
+1,
+0
+],
+"184|83|montáž JOM": [
+1,
+0
+],
+"190|84|separatista paušál": [
+45,
+0
+],
+"197|85|optimalizace spotřeby Chytrá zásuvka ": [
+45,
+0
+],
+"198|86|optimalizace spotřeby Brána": [
+1,
+0
+],
+"199|87|optimalizace spotřeby Relé": [
+5,
+0
+],
+"200|88|optimalizace spotřeby detektor kouře": [
+1,
+0
+],
+"201|89|optimalizace spotřeby spuštění ": [
+45,
+0
+],
+"202|90|optimalizace spotřeby zřízení přístupů": [
+45,
+0
+],
+"203|91|optimalizace spotřeby Opakovač": [
+null,
+0
+],
+"208|92|wallbox": [
+0,
+0
+],
+"214|93|revize JOM": [
+1,
+0
+],
+"215|94|revize FVE": [
+1,
+19760
+],
+"216|95|revize HDV": [
+1,
+0
+],
+"217|96|revize hromosvodu": [
+1,
+6300
+],
+"218|97|servisní prohlídka": [
+1,
+0
+],
+"223|98|spuštění, nastavení systému FVE": [
+1,
+0
+],
+"224|99|zřízení řístupupových údaju a nastavení app odečty": [
+1,
+0
+],
+"225|100|spuštění, nastavení systému": [
+1,
+0
+],
+"226|101|servis app": [
+1,
+0
+],
+"232|102|projekt FVE": [
+1,
+76593.137254902
+],
+"234|103|administrace NZÚ": [
+1,
+22977.9411764706
+],
+"235|104|administrace JOM": [
+1,
+0
+],
+"236|105|administrace FVE": [
+1,
+0
+],
+"242|106|zřízení staveniště": [
+1,
+0
+],
+"248|107|Vlastní položka 1": [
+1,
+0
+],
+"249|108|Vlastní položka 2": [
+1,
+0
+],
+"251|109|TUV 750 litrů instalaterská část": [
+0,
+0
+],
+"252|110|TUV 750 litrů Elektro část s WATTROUTEREM na počet jomek": [
+0,
+0
+],
+"253|111|TUV 750 litrů Elektro část na střídač ": [
+null,
+0
+],
+"254|112|TUV 1 500 litrů": [
+0,
+0
+],
+"255|113|TUV 1500 litrů Elektro část s WATTROUTEREM": [
+0,
+0
+],
+"256|114|TUV 1500 litrů Elektro část na střídač": [
+null,
+0
+],
+"257|115|TUV 2250 litrů instalaterská část": [
+0,
+0
+],
+"258|116|TUV 2250 litrů Elektro část s WATTROUTEREM": [
+0,
+0
+],
+"259|117|TUV 2250 litrů Elektro část na střídač": [
+null,
+0
+],
+"260|118|TUV 3000 litrů instalaterská část": [
+0,
+0
+],
+"261|119|TUV 3000 litrů Elektro část s WATTROUTEREM": [
+0,
+0
+],
+"262|120|TUV 3000 litrů Elektro část na střídač": [
+null,
+0
+],
+"263|121|TUV 3750 litrů instalaterská část": [
+0,
+0
+],
+"264|122|TUV 3750 litrů Elektro část s WATTROUTEREM": [
+0,
+0
+],
+"265|123|TUV 3750 litrů Elektro část na střídač": [
+null,
+0
+]
+}
+},
+"C": {
+"D9": 80,
+"D11": 52.92,
+"D12": 2,
+"D26": 58.8,
+"D27": 120,
+"D28": null,
+"D29": null,
+"D30": 9,
+"D31": 2,
+"D36": null,
+"D37": "#VALUE!",
+"D38": null,
+"D39": null,
+"D47": 2989161.5870168,
+"F47": 3347860.97745882,
+"M46": 506100.7035912,
+"M45": 3495262.290608,
+"H54": 870000,
+"H55": 0,
+"H56": 0,
+"H57": 0,
+"E53": 870000,
+"M80": 870000,
+"E57": 739500,
+"D59": 2989161.5870168,
+"F59": 3347860.97745882,
+"W22": "#DIV/0!",
+"G15": 5375,
+"E16": 30,
+"E17": 5375,
+"E5x": 4.51910211267605,
+"batH": [
+null,
+null,
+null
+],
+"batI": [
+null,
+null,
+null
+],
+"batJ": [
+null,
+null,
+null
+],
+"CAE4": 0,
+"CAF4": 0,
+"CAG4": 0,
+"CAI4": 0,
+"CAJ4": 0,
+"CJ271": 3617778.07635833,
+"VL39": 52.92,
+"VL40": 16.8664084507042,
+"VL41": 0,
+"VL42": 0,
+"VL43": 13.1335915492958,
+"VL44": 39.7864084507042,
+"VL46": 0,
+"VL49": 0,
+"VL51": 30,
+"VL52": 0,
+"VL53": 0,
+"VL57": 161250,
+"VL60": 70593.0545774648,
+"VL61": 0,
+"VL62": 0,
+"VL67": 90486.2588028169,
+"VL70": 70593.0545774648,
+"VL79": 36.9985567063205,
+"VL80": 0,
+"VL81": 0,
+"VL82": 47.4247926725577,
+"VL83": 0,
+"VL84": 0,
+"VL85": 3021.89818075117,
+"VL91": 882.41318221831,
+"OF26": 0.437786384976526,
+"OF30": 0.562213615023474,
+"OF148": 45.5009700980441,
+"OF139": 3098035.27915482,
+"OF141": 114017.186304,
+"OF142": 135808.512,
+"OF140": 0,
+"OF146": 0,
+"OJ154": 70593.0545774648,
+"OJ162": 882.41318221831,
+"items": {
+"10|1|konstrukce plochá VZ střecha 15°": [
+120,
+0
+],
+"11|2|konstrukce plochá J střecha 15°": [
+120,
+0
+],
+"12|3|přitížení plochá střecha": [
+0,
+0
+],
+"13|4|fix profil": [
+0,
+0
+],
+"14|5|kladečský plán fixprofilu": [
+0,
+0
+],
+"15|6|montáž fix profilu": [
+0,
+0
+],
+"16|7|solatech": [
+312,
+0
+],
+"17|8|montáž solatech": [
+312,
+0
+],
+"18|9|montáž plochá střecha (včetně výškové techniky a práce)": [
+58.8,
+0
+],
+"24|10|konstrukce šikmé střechy jedna rovina": [
+120,
+204000
+],
+"25|11|montáž šikmá střecha (včetně výškové techniky a práce)": [
+58.8,
+311640
+],
+"31|12|konstrukce fasády": [
+0,
+0
+],
+"32|13|montáž fasáda (včetně výškové techniky a práce)": [
+0,
+0
+],
+"33|14|lešení fasáda": [
+0,
+0
+],
+"39|15|panel AIKO-A490-MAH-54 DW 2P+  490 Wp": [
+120,
+282240
+],
+"45|16|kabelový žlab víko": [
+93,
+63240
+],
+"46|17|kabelový žlab: 20 % délky  120/50 + 80 % délky 50/62": [
+93,
+35340
+],
+"52|18|montáž rozvaděče DC na střeše": [
+1,
+10000
+],
+"53|19|konstrukce pro rozvaděč - střecha": [
+1,
+5775
+],
+"54|20|rozvaděč R-DC dle ČSN": [
+58.8,
+117600
+],
+"55|None|rozvaděč skříň": [
+1,
+10500
+],
+"60|21|zemnění od panelů pospojení s hromosvodem ALMgSi": [
+120,
+18000
+],
+"61|22|zemnění mění - propojení konstrukce (panely) CYA 16": [
+120,
+0
+],
+"67|23|úprava hromosvodu": [
+1,
+50000
+],
+"73|24|DC vodič D 6 mm string": [
+3654,
+102312
+],
+"79|25|svod = DC vodič ( počet stringu) ; cyky 3x 1,5 ; uv chránička 63/110 ; úvazek čerpadla ; svod trubka + kotvení": [
+30,
+23250
+],
+"80|26|cyky 3x1,5": [
+45,
+1125
+],
+"81|27|zemnění k rozvaděči CYA 16": [
+45,
+2475
+],
+"82|28|montáž svod (včetně výškové techniky a práce) - výška budovy": [
+30,
+30000
+],
+"83|29|jádrové vrtání - obvodová stěna": [
+2,
+5000
+],
+"84|30|svod okap trubka": [
+30,
+0
+],
+"85|31|žlab ve fasádě": [
+30,
+0
+],
+"91|32|rozvaděč R-FVE-DC dle ČSN": [
+58.8,
+88200
+],
+"92|33|R-FVE-AC rozvaděč střídače + rozpad bod (na kW),  dle ČSN (plechová bedna)": [
+58.8,
+82320
+],
+"93|34|montáž technologie": [
+2,
+120000
+],
+"99|35|Deye 10 - Hybrid HV Inverter - střídač": [
+0,
+0
+],
+"100|36|Deye 12 - Hybrid HV Inverter - střídač": [
+1,
+39747.666
+],
+"101|37|Deye 20 - Hybrid HV Inverter - střídač": [
+0,
+0
+],
+"102|38|Deye 30 - Hybrid HV Inverter - střídač": [
+0,
+0
+],
+"103|39|Deye 40 - Hybrid HV Inverter - střídač": [
+0,
+0
+],
+"104|40|Deye 50 - Hybrid HV Inverter - střídač": [
+1,
+135901.0905
+],
+"105|41|Energy Meter": [
+2,
+5312
+],
+"111|42|Deye HV Battery BOS-G-PACK 5.1 - počet článků baterií": [
+0,
+0
+],
+"112|43|Deye HV Control Box BOS-G-PDU-2 - BMS": [
+0,
+0
+],
+"113|44|Deye HV-Rack for BOS-G (9 nebo 13 layers) - box na baterie": [
+0,
+0
+],
+"114|45|Deye HV Battery GB-L - počet článků baterií": [
+0,
+0
+],
+"115|46|Deye HV Control Box GB-LB + Base - BMS": [
+0,
+0
+],
+"117|47|Deye - BOS-G EP Cable  5.0": [
+0,
+0
+],
+"118|48|Deye - BOS-G EN Cable  5.0": [
+0,
+0
+],
+"124|49|sněhový hasící přístroj s minimální hasící schopností 55B": [
+1,
+1200
+],
+"125|50|dveře do místnosti s technologií FVE, s požární odolností min. El 30 DP3": [
+1,
+35000
+],
+"126|51|požární ucpávky": [
+1,
+14000
+],
+"127|52|protipožární hasicí koule Fireball": [
+1,
+386
+],
+"128|53|požarní prostup roxtex": [
+1,
+9000
+],
+"130|54|stop tačítko, montáž, vedení": [
+6,
+13800
+],
+"136|55|rozvaděč podružný bytový ": [
+83,
+0
+],
+"137|56|montáž podružný rozvaděču": [
+83,
+0
+],
+"138|57| výměna svorkovnice bytu": [
+83,
+0
+],
+"139|58|výměna stoupačkové svorkovnice": [
+72,
+0
+],
+"140|59|datový kabel  UTP pro podružné elektroměry": [
+86,
+0
+],
+"146|60|elektroměr spodní vývody": [
+0,
+0
+],
+"147|61|kryt jističe": [
+0,
+0
+],
+"148|62|montáž ": [
+0,
+0
+],
+"149|63|datový kabel  UTP pro podružné elektroměry": [
+0,
+0
+],
+"155|64|úprava rozvaděče pro státní model, měření B ": [
+1,
+0
+],
+"161|65|propojení HDS - JOM AYKY 4x95 - 5 bm (materiál)": [
+2,
+0
+],
+"162|66|trasa HDS - JOM - 5 bm (práce)": [
+2,
+0
+],
+"163|67|propojení FVE AYKY 4x50 (propojení FVE a JOM) + FTP CAT 5 + 5x1,5 CYKY J + UTP": [
+160,
+44800
+],
+"164|68|propojení JOM-FVE trasa": [
+160,
+124800
+],
+"165|69|vedení AC kabel H07RN-F 5Gx25": [
+10,
+7750
+],
+"166|70|propojení HDV1 AYKY 4x25 (propojení HDV vchodu JOM) + FTP CAT 5 + 5x1,5 CYKY J + UTP (materiál)": [
+26,
+0
+],
+"167|71|propojení JOM-HDV1  trasa (práce)": [
+26,
+0
+],
+"168|72|propojení HDV2 AYKY 4x25 (propojení HDV vchodu JOM) + FTP CAT 5 + 5x1,5 CYKY J + UTP (materiál)": [
+52.6666666666667,
+0
+],
+"169|73|propojení JOM-HDV2 trasa (práce)": [
+26.6666666666667,
+0
+],
+"170|74|propojení HDV3 AYKY 4x25 (propojení HDV vchodu JOM) + FTP CAT 5 + 5x1,5 CYKY J + UTP (materiál)": [
+66,
+0
+],
+"171|75|propojení JOM-HDV3 trasa (práce)": [
+6.66666666666667,
+0
+],
+"172|76|propojení HDV4 AYKY 4x25 (propojení HDV vchodu JOM) + FTP CAT 5 + 5x1,5 CYKY J + UTP (materiál)": [
+0,
+0
+],
+"173|77|propojení JOM-HDV4 trasa (práce)": [
+0,
+0
+],
+"174|78|průraz - vnitřní stěny": [
+8,
+1600
+],
+"175|79|stoupačkové vedení do AYKY 4x50, do 5 m / patro": [
+0,
+0
+],
+"176|80|montáž stoupačkového vedení do AYKY 4x50 ": [
+0,
+0
+],
+"177|81|demontáž staré elektroinstalace": [
+0,
+0
+],
+"183|82|JOM rozvaděč, dle ČSN, PPDS": [
+2,
+0
+],
+"184|83|montáž JOM": [
+2,
+0
+],
+"190|84|separatista paušál": [
+80,
+0
+],
+"197|85|optimalizace spotřeby Chytrá zásuvka ": [
+0,
+0
+],
+"198|86|optimalizace spotřeby Brána": [
+0,
+0
+],
+"199|87|optimalizace spotřeby Relé": [
+0,
+0
+],
+"200|88|optimalizace spotřeby detektor kouře": [
+0,
+0
+],
+"201|89|optimalizace spotřeby spuštění ": [
+0,
+0
+],
+"202|90|optimalizace spotřeby zřízení přístupů": [
+0,
+0
+],
+"203|91|optimalizace spotřeby Opakovač": [
+null,
+0
+],
+"208|92|wallbox": [
+0,
+0
+],
+"214|93|revize JOM": [
+2,
+0
+],
+"215|94|revize FVE": [
+2,
+39520
+],
+"216|95|revize HDV": [
+1,
+0
+],
+"217|96|revize hromosvodu": [
+1,
+6300
+],
+"218|97|servisní prohlídka": [
+1,
+0
+],
+"223|98|spuštění, nastavení systému FVE": [
+1,
+0
+],
+"224|99|zřízení řístupupových údaju a nastavení app odečty": [
+1,
+0
+],
+"225|100|spuštění, nastavení systému": [
+1,
+0
+],
+"226|101|servis app": [
+1,
+0
+],
+"232|102|projekt FVE": [
+1,
+76593.137254902
+],
+"234|103|administrace NZÚ": [
+1,
+22977.9411764706
+],
+"235|104|administrace JOM": [
+1,
+0
+],
+"236|105|administrace FVE": [
+1,
+0
+],
+"242|106|zřízení staveniště": [
+1,
+0
+],
+"248|107|Vlastní položka 1": [
+1,
+0
+],
+"249|108|Vlastní položka 2": [
+1,
+0
+],
+"251|109|TUV 750 litrů instalaterská část": [
+0,
+0
+],
+"252|110|TUV 750 litrů Elektro část s WATTROUTEREM na počet jomek": [
+0,
+0
+],
+"253|111|TUV 750 litrů Elektro část na střídač ": [
+null,
+0
+],
+"254|112|TUV 1 500 litrů": [
+0,
+0
+],
+"255|113|TUV 1500 litrů Elektro část s WATTROUTEREM": [
+0,
+0
+],
+"256|114|TUV 1500 litrů Elektro část na střídač": [
+null,
+0
+],
+"257|115|TUV 2250 litrů instalaterská část": [
+0,
+0
+],
+"258|116|TUV 2250 litrů Elektro část s WATTROUTEREM": [
+0,
+0
+],
+"259|117|TUV 2250 litrů Elektro část na střídač": [
+null,
+0
+],
+"260|118|TUV 3000 litrů instalaterská část": [
+0,
+0
+],
+"261|119|TUV 3000 litrů Elektro část s WATTROUTEREM": [
+0,
+0
+],
+"262|120|TUV 3000 litrů Elektro část na střídač": [
+null,
+0
+],
+"263|121|TUV 3750 litrů instalaterská část": [
+0,
+0
+],
+"264|122|TUV 3750 litrů Elektro část s WATTROUTEREM": [
+0,
+0
+],
+"265|123|TUV 3750 litrů Elektro část na střídač": [
+null,
+0
+]
+}
+},
+"D": {
+"D9": 55,
+"D11": 10.143,
+"D12": 2,
+"D26": 11.27,
+"D27": 23,
+"D28": 8.18,
+"D29": 2,
+"D30": 2,
+"D31": 2,
+"D36": 83.333333333334,
+"D37": 719.999999999994,
+"D38": 750,
+"D39": 1,
+"D47": 3172303.2375728,
+"F47": 3552979.62608154,
+"M46": 213132.4583952,
+"M45": 3385435.695968,
+"H54": 165000,
+"H55": 80000,
+"H56": 220000,
+"H57": 0,
+"E53": 465000,
+"M80": 465000,
+"E57": 395250,
+"D59": 2172303.2375728,
+"F59": 2552979.62608154,
+"W22": 0.738383045525903,
+"G15": 6290.90909090909,
+"E16": 114,
+"E17": 6290.90909090909,
+"E5x": 0.207683213536024,
+"batH": [
+4.09,
+1,
+4.09
+],
+"batI": [
+4.09,
+1,
+4.09
+],
+"batJ": [
+null,
+null,
+null
+],
+"CAE4": 0,
+"CAF4": 0,
+"CAG4": 0,
+"CAI4": 2,
+"CAJ4": 2,
+"CJ271": 1939903.25831667,
+"VL39": 10.143,
+"VL40": 105.782943923077,
+"VL41": 81.5614649241032,
+"VL42": 99.8582505272616,
+"VL43": 8.21705607692307,
+"VL44": 1.92594392307692,
+"VL46": 1.77186840923077,
+"VL49": 0.141749472738461,
+"VL51": 114,
+"VL52": 83.333333333334,
+"VL53": 100,
+"VL57": 717163.636363637,
+"VL60": 51692.7527748252,
+"VL61": 1275.74525464614,
+"VL62": 1275.74525464615,
+"VL67": 0,
+"VL70": 0,
+"VL79": 0,
+"VL80": 0,
+"VL81": 47.0591798288838,
+"VL82": 0,
+"VL83": 0,
+"VL84": 47.0645265103927,
+"VL85": 5837.46389112992,
+"VL91": 939.868232269548,
+"OF26": 0.0340717734043462,
+"OF30": 0.965928226595654,
+"OF148": 6.82263277442046,
+"OF139": 1242236.91017754,
+"OF141": 110443.759104,
+"OF142": 109213.44,
+"OF140": 1696272.0768,
+"OF146": 394813.44,
+"OJ154": 54244.2432841174,
+"OJ162": 986.258968802135,
+"items": {
+"10|1|konstrukce plochá VZ střecha 15°": [
+23,
+0
+],
+"11|2|konstrukce plochá J střecha 15°": [
+23,
+48300
+],
+"12|3|přitížení plochá střecha": [
+23,
+9200
+],
+"13|4|fix profil": [
+0,
+0
+],
+"14|5|kladečský plán fixprofilu": [
+0,
+0
+],
+"15|6|montáž fix profilu": [
+0,
+0
+],
+"16|7|solatech": [
+0,
+0
+],
+"17|8|montáž solatech": [
+0,
+0
+],
+"18|9|montáž plochá střecha (včetně výškové techniky a práce)": [
+11.27,
+59731
+],
+"24|10|konstrukce šikmé střechy jedna rovina": [
+23,
+0
+],
+"25|11|montáž šikmá střecha (včetně výškové techniky a práce)": [
+11.27,
+0
+],
+"31|12|konstrukce fasády": [
+0,
+0
+],
+"32|13|montáž fasáda (včetně výškové techniky a práce)": [
+0,
+0
+],
+"33|14|lešení fasáda": [
+0,
+0
+],
+"39|15|panel AIKO-A490-MAH-54 DW 2P+  490 Wp": [
+23,
+54096
+],
+"45|16|kabelový žlab víko": [
+62,
+42160
+],
+"46|17|kabelový žlab: 20 % délky  120/50 + 80 % délky 50/62": [
+62,
+23560
+],
+"52|18|montáž rozvaděče DC na střeše": [
+1,
+10000
+],
+"53|19|konstrukce pro rozvaděč - střecha": [
+1,
+5775
+],
+"54|20|rozvaděč R-DC dle ČSN": [
+11.27,
+22540
+],
+"55|None|rozvaděč skříň": [
+1,
+10500
+],
+"60|21|zemnění od panelů pospojení s hromosvodem ALMgSi": [
+23,
+3450
+],
+"61|22|zemnění mění - propojení konstrukce (panely) CYA 16": [
+23,
+0
+],
+"67|23|úprava hromosvodu": [
+1,
+50000
+],
+"73|24|DC vodič D 6 mm string": [
+528,
+14784
+],
+"79|25|svod = DC vodič ( počet stringu) ; cyky 3x 1,5 ; uv chránička 63/110 ; úvazek čerpadla ; svod trubka + kotvení": [
+20,
+15500
+],
+"80|26|cyky 3x1,5": [
+30,
+750
+],
+"81|27|zemnění k rozvaděči CYA 16": [
+30,
+1650
+],
+"82|28|montáž svod (včetně výškové techniky a práce) - výška budovy": [
+20,
+20000
+],
+"83|29|jádrové vrtání - obvodová stěna": [
+2,
+5000
+],
+"84|30|svod okap trubka": [
+20,
+0
+],
+"85|31|žlab ve fasádě": [
+20,
+0
+],
+"91|32|rozvaděč R-FVE-DC dle ČSN": [
+11.27,
+16905
+],
+"92|33|R-FVE-AC rozvaděč střídače + rozpad bod (na kW),  dle ČSN (plechová bedna)": [
+11.27,
+15778
+],
+"93|34|montáž technologie": [
+2,
+120000
+],
+"99|35|Deye 10 - Hybrid HV Inverter - střídač": [
+2,
+72725.436
+],
+"100|36|Deye 12 - Hybrid HV Inverter - střídač": [
+0,
+0
+],
+"101|37|Deye 20 - Hybrid HV Inverter - střídač": [
+0,
+0
+],
+"102|38|Deye 30 - Hybrid HV Inverter - střídač": [
+0,
+0
+],
+"103|39|Deye 40 - Hybrid HV Inverter - střídač": [
+0,
+0
+],
+"104|40|Deye 50 - Hybrid HV Inverter - střídač": [
+0,
+0
+],
+"105|41|Energy Meter": [
+2,
+5312
+],
+"111|42|Deye HV Battery BOS-G-PACK 5.1 - počet článků baterií": [
+0,
+0
+],
+"112|43|Deye HV Control Box BOS-G-PDU-2 - BMS": [
+0,
+0
+],
+"113|44|Deye HV-Rack for BOS-G (9 nebo 13 layers) - box na baterie": [
+0,
+0
+],
+"114|45|Deye HV Battery GB-L - počet článků baterií": [
+2,
+53429.103
+],
+"115|46|Deye HV Control Box GB-LB + Base - BMS": [
+2,
+32766.51
+],
+"117|47|Deye - BOS-G EP Cable  5.0": [
+0,
+0
+],
+"118|48|Deye - BOS-G EN Cable  5.0": [
+0,
+0
+],
+"124|49|sněhový hasící přístroj s minimální hasící schopností 55B": [
+1,
+1200
+],
+"125|50|dveře do místnosti s technologií FVE, s požární odolností min. El 30 DP3": [
+1,
+35000
+],
+"126|51|požární ucpávky": [
+1,
+14000
+],
+"127|52|protipožární hasicí koule Fireball": [
+1,
+386
+],
+"128|53|požarní prostup roxtex": [
+1,
+9000
+],
+"130|54|stop tačítko, montáž, vedení": [
+5,
+11500
+],
+"136|55|rozvaděč podružný bytový ": [
+0,
+0
+],
+"137|56|montáž podružný rozvaděču": [
+0,
+0
+],
+"138|57| výměna svorkovnice bytu": [
+0,
+0
+],
+"139|58|výměna stoupačkové svorkovnice": [
+0,
+0
+],
+"140|59|datový kabel  UTP pro podružné elektroměry": [
+0,
+0
+],
+"146|60|elektroměr spodní vývody": [
+57,
+188100
+],
+"147|61|kryt jističe": [
+57,
+9690
+],
+"148|62|montáž ": [
+57,
+57000
+],
+"149|63|datový kabel  UTP pro podružné elektroměry": [
+64,
+1280
+],
+"155|64|úprava rozvaděče pro státní model, měření B ": [
+5,
+0
+],
+"161|65|propojení HDS - JOM AYKY 4x95 - 5 bm (materiál)": [
+2,
+5600
+],
+"162|66|trasa HDS - JOM - 5 bm (práce)": [
+2,
+12000
+],
+"163|67|propojení FVE AYKY 4x50 (propojení FVE a JOM) + FTP CAT 5 + 5x1,5 CYKY J + UTP": [
+100,
+28000
+],
+"164|68|propojení JOM-FVE trasa": [
+100,
+78000
+],
+"165|69|vedení AC kabel H07RN-F 5Gx25": [
+10,
+7750
+],
+"166|70|propojení HDV1 AYKY 4x25 (propojení HDV vchodu JOM) + FTP CAT 5 + 5x1,5 CYKY J + UTP (materiál)": [
+24,
+6000
+],
+"167|71|propojení JOM-HDV1  trasa (práce)": [
+24,
+18720
+],
+"168|72|propojení HDV2 AYKY 4x25 (propojení HDV vchodu JOM) + FTP CAT 5 + 5x1,5 CYKY J + UTP (materiál)": [
+44,
+11000
+],
+"169|73|propojení JOM-HDV2 trasa (práce)": [
+20,
+15600
+],
+"170|74|propojení HDV3 AYKY 4x25 (propojení HDV vchodu JOM) + FTP CAT 5 + 5x1,5 CYKY J + UTP (materiál)": [
+0,
+0
+],
+"171|75|propojení JOM-HDV3 trasa (práce)": [
+0,
+0
+],
+"172|76|propojení HDV4 AYKY 4x25 (propojení HDV vchodu JOM) + FTP CAT 5 + 5x1,5 CYKY J + UTP (materiál)": [
+0,
+0
+],
+"173|77|propojení JOM-HDV4 trasa (práce)": [
+0,
+0
+],
+"174|78|průraz - vnitřní stěny": [
+8,
+1600
+],
+"175|79|stoupačkové vedení do AYKY 4x50, do 5 m / patro": [
+200,
+200000
+],
+"176|80|montáž stoupačkového vedení do AYKY 4x50 ": [
+40,
+48000
+],
+"177|81|demontáž staré elektroinstalace": [
+200,
+20000
+],
+"183|82|JOM rozvaděč, dle ČSN, PPDS": [
+2,
+130000
+],
+"184|83|montáž JOM": [
+2,
+40000
+],
+"190|84|separatista paušál": [
+55,
+30800
+],
+"197|85|optimalizace spotřeby Chytrá zásuvka ": [
+55,
+0
+],
+"198|86|optimalizace spotřeby Brána": [
+2,
+0
+],
+"199|87|optimalizace spotřeby Relé": [
+5,
+0
+],
+"200|88|optimalizace spotřeby detektor kouře": [
+2,
+0
+],
+"201|89|optimalizace spotřeby spuštění ": [
+55,
+0
+],
+"202|90|optimalizace spotřeby zřízení přístupů": [
+55,
+0
+],
+"203|91|optimalizace spotřeby Opakovač": [
+null,
+0
+],
+"208|92|wallbox": [
+0,
+0
+],
+"214|93|revize JOM": [
+2,
+7280
+],
+"215|94|revize FVE": [
+2,
+39520
+],
+"216|95|revize HDV": [
+1,
+11600
+],
+"217|96|revize hromosvodu": [
+1,
+6300
+],
+"218|97|servisní prohlídka": [
+1,
+0
+],
+"223|98|spuštění, nastavení systému FVE": [
+1,
+0
+],
+"224|99|zřízení řístupupových údaju a nastavení app odečty": [
+1,
+0
+],
+"225|100|spuštění, nastavení systému": [
+1,
+0
+],
+"226|101|servis app": [
+1,
+0
+],
+"232|102|projekt FVE": [
+1,
+76593.137254902
+],
+"234|103|administrace NZÚ": [
+1,
+22977.9411764706
+],
+"235|104|administrace JOM": [
+1,
+0
+],
+"236|105|administrace FVE": [
+1,
+0
+],
+"242|106|zřízení staveniště": [
+1,
+0
+],
+"248|107|Vlastní položka 1": [
+1,
+0
+],
+"249|108|Vlastní položka 2": [
+1,
+0
+],
+"251|109|TUV 750 litrů instalaterská část": [
+1,
+142000
+],
+"252|110|TUV 750 litrů Elektro část s WATTROUTEREM na počet jomek": [
+2,
+74000
+],
+"253|111|TUV 750 litrů Elektro část na střídač ": [
+null,
+0
+],
+"254|112|TUV 1 500 litrů": [
+0,
+0
+],
+"255|113|TUV 1500 litrů Elektro část s WATTROUTEREM": [
+0,
+0
+],
+"256|114|TUV 1500 litrů Elektro část na střídač": [
+null,
+0
+],
+"257|115|TUV 2250 litrů instalaterská část": [
+0,
+0
+],
+"258|116|TUV 2250 litrů Elektro část s WATTROUTEREM": [
+0,
+0
+],
+"259|117|TUV 2250 litrů Elektro část na střídač": [
+null,
+0
+],
+"260|118|TUV 3000 litrů instalaterská část": [
+0,
+0
+],
+"261|119|TUV 3000 litrů Elektro část s WATTROUTEREM": [
+0,
+0
+],
+"262|120|TUV 3000 litrů Elektro část na střídač": [
+null,
+0
+],
+"263|121|TUV 3750 litrů instalaterská část": [
+0,
+0
+],
+"264|122|TUV 3750 litrů Elektro část s WATTROUTEREM": [
+0,
+0
+],
+"265|123|TUV 3750 litrů Elektro část na střídač": [
+null,
+0
+]
+}
+}
+}

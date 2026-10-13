@@ -1,0 +1,17 @@
+{
+"A": {"cells": {"B7":25,"C7":60,"D7":12,"K7":4,"J7":4,"L7":"ano","M7":32,"N7":"ano","O7":32,"P7":0,"Q7":0,"R7":0,"S7":"přitížení dlažbou",
+  "D15":"JOM","D16":"VZ","D17":"běžný","D19":"ano","D22":"ne","D34":90000,"D35":5000,"F43":1,"B43":"test položka","D43":10000,"E56":800000},
+ "units":[{"bj":40,"spol":2,"spotrByty":80,"spotrSpol":15,"cena":6500,"vykon":27.44,"stringy":4,"stridac":"DEYE 20"},
+          {"bj":30,"spol":1,"spotrByty":60,"spotrSpol":10,"cena":6000,"vykon":13.72,"stringy":2,"stridac":"DEYE 10"}]},
+"B": {"cells": {"B7":18,"C7":40,"D7":11,"K7":3,"J7":3,"L7":"ne","M7":8,"N7":"ne","O7":24,"P7":10,"Q7":4.9,"R7":100,"S7":"fix profily",
+  "D15":"Spol. prostory","D16":"J","D17":"TČ/el. topení","D19":"ne","D22":"ano","D23":"běžný","F43":0,"E56":300000},
+ "units":[{"bj":45,"spol":3,"spotrByty":90,"spotrSpol":20,"cena":7000,"vykon":36.75,"stringy":5,"stridac":"DEYE 30"}]},
+"C": {"cells": {"B7":30,"C7":80,"D7":13,"K7":6,"J7":6,"L7":"ne","M7":12,"N7":"ano","O7":72,"S7":"solatech",
+  "D15":"Spol. prostory bez baterie","D16":"šikmá","D17":"běžný","D19":"ne","D22":"ne"},
+ "units":[{"bj":60,"spol":2,"spotrByty":120,"spotrSpol":25,"cena":5500,"vykon":49.0,"stringy":7,"stridac":"DEYE 50"},
+          {"bj":20,"spol":1,"spotrByty":40,"spotrSpol":5,"cena":5000,"vykon":9.8,"stringy":2,"stridac":"DEYE 12"}]},
+"D": {"cells": {"B7":20,"C7":50,"D7":12,"K7":5,"J7":5,"L7":"ano","M7":40,"N7":"ne","O7":40,"S7":"přitížení dlažbou",
+  "D15":"JOM","D16":"J","D17":"běžný","D19":"ano","D22":"ano","D23":"běžný","D34":60000,"E35":300,"E56":1000000},
+ "units":[{"bj":30,"spol":1,"spotrByty":55,"spotrSpol":8,"cena":6200,"vykon":6.37,"stringy":1,"stridac":"DEYE 10"},
+          {"bj":25,"spol":1,"spotrByty":45,"spotrSpol":6,"cena":6400,"vykon":4.9,"stringy":1,"stridac":"DEYE 10"}]}
+}

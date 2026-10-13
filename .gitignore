@@ -1,0 +1,8 @@
+# Interní podklady – do repozitáře nepatří
+*.xlsm
+*.xlsx
+*.docx
+*.webloc
+kalkulacka-fve.html
+.DS_Store
+~$*

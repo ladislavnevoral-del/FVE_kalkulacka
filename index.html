@@ -1,0 +1,49 @@
+<!doctype html>
+<html lang="cs">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Kalkulačka FVE pro bytové domy</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wght@500;600;700;800&family=Source+Sans+3:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap">
+<link rel="stylesheet" href="css/app.css">
+</head>
+<body>
+<div class="wrap" id="app">
+  <header class="top">
+    <div class="brand">
+      <div class="mark" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div>
+      <div><h1>Kalkulačka FVE</h1><div class="sub" id="verze"></div></div>
+    </div>
+    <div class="projbar">
+      <input class="projname" id="projname" placeholder="Název projektu (např. SVJ Lipová 12)" aria-label="Název projektu">
+      <div class="varbar"><label for="varSel" class="small muted">Varianta</label><select id="varSel" class="varsel"></select><button class="btn" id="btnVarNew" title="Vytvořit novou variantu jako kopii aktuální">+ varianta</button></div>
+      <button class="btn primary" id="btnSave">Uložit</button>
+      <button class="btn" id="btnProjects">Projekty</button>
+      <span class="status" id="status" role="status"></span>
+    </div>
+  </header>
+  <section class="drawer" id="drawer" hidden>
+    <div class="sechead"><h3>Projekty v tomto prohlížeči</h3>
+      <div class="btnrow"><button class="btn" id="btnNew">Nový projekt</button><button class="btn" id="btnDup">Uložit jako kopii</button><button class="btn" id="btnExample">Ukázkový dům</button>
+        <label class="btn" for="fileImport">Importovat projekt / zálohu…</label><input type="file" id="fileImport" accept=".json,application/json" hidden>
+        <button class="btn" id="btnBackup">Zálohovat vše</button></div></div>
+    <input class="search" id="psearch" placeholder="Hledat podle názvu nebo adresy" aria-label="Hledat projekty">
+    <div class="plist" id="plist"></div>
+  </section>
+
+  <div class="strip" id="strip"></div>
+  <nav class="tabs" role="tablist" id="tabs"></nav>
+  <main class="panel" id="panel"></main>
+  <footer class="foot small muted" id="foot"></footer>
+</div>
+<div id="printRoot"></div>
+
+<script src="js/cenik-vychozi.js"></script>
+<script src="js/engine.js"></script>
+<script src="js/sim.js"></script>
+<script src="js/eko.js"></script>
+<script src="js/store.js"></script>
+<script src="js/app.js"></script>
+</body>
+</html>
