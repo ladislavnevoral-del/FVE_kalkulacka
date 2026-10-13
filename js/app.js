@@ -17,7 +17,7 @@ const yn = ['ano', 'ne'];
 // ---------------- stav ----------------
 let P = null, V = null, C = null, I = null;
 let R = null, OD = null, Scache = null, Ekey = null, E = null;
-let dirty = false, tab = 'vstupy', showOff = false, confirmDel = null, admSub = 'parametry', admDraft = null, admSel = null, upgradeView = false, repOpts = null, simDen = 'cerven', psearch = '';
+let dirty = false, tab = 'pruvodce', showOff = false, confirmDel = null, admSub = 'parametry', admDraft = null, admSel = null, upgradeView = false, repOpts = null, simDen = 'cerven', psearch = '';
 const LABELS = {};
 
 function exampleInputs(Cn) {
@@ -107,7 +107,7 @@ function lineChart(vals, h = 200) {
 const MES3 = FVE.MESICE.map(m => m.slice(0, 3));
 
 // ---------------- záložky ----------------
-const TABS = [['projekt', 'Projekt'], ['vstupy', 'Vstupní data'], ['fve', 'Návrh FVE'], ['energie', 'Energie a ceny'], ['rozpocet', 'Rozpočet'], ['dotace', 'Dotace'], ['vyroba', 'Výroba a simulace'], ['eko', 'Ekonomika'], ['varianty', 'Porovnání variant'], ['report', 'Report / PDF'], ['admin', 'Administrace']];
+const TABS = [['pruvodce', 'Průvodce'], ['projekt', 'Projekt'], ['vstupy', 'Vstupní data'], ['fve', 'Návrh FVE'], ['energie', 'Energie a ceny'], ['rozpocet', 'Rozpočet'], ['dotace', 'Dotace'], ['vyroba', 'Výroba a simulace'], ['eko', 'Ekonomika'], ['varianty', 'Porovnání variant'], ['report', 'Report / PDF'], ['admin', 'Administrace']];
 function tabDot(k) {
   if (k === 'fve' && R.warn.length) return true;
   if (k === 'rozpocet' && rozpZmeny().length) return true;
@@ -429,6 +429,93 @@ PANELS.report = () => {
     <div class="small muted">V dialogu tisku zvol „Uložit jako PDF“. Report se generuje z aktuálních vstupů otevřené varianty${dirty ? ' – projekt má neuložené změny' : ''}.</div>${reportHTML()}`;
 };
 
+// ---- průvodce naceněním ----
+function W() { if (!P.pruvodce) P.pruvodce = FVEPRUVODCE.zVstupu(I, C); return P.pruvodce; }
+function wfld(key, label, opt = {}) {
+  const w = W(), v = w[key] ?? '';
+  const numeric = !opt.text && !opt.options, bad = numeric && v !== '' && !has(v);
+  const miss = opt.req && !(has(v) && num(v) > 0);
+  let ctl;
+  if (opt.options) ctl = `<select id="w-${key}" data-w="${key}">${opt.options.map(o => { const [val, lab] = Array.isArray(o) ? o : [o, o]; return `<option value="${esc(val)}"${String(val) === String(v) ? ' selected' : ''}>${esc(lab)}</option>`; }).join('')}</select>`;
+  else ctl = `<input id="w-${key}" data-w="${key}" type="text" inputmode="${opt.text ? 'text' : 'decimal'}" class="${opt.text ? 'txt' : ''}" value="${esc(v)}" placeholder="${esc(opt.ph || '')}">`;
+  return `<div class="f"><label for="w-${key}">${label}${opt.req ? ' <span style="color:var(--sun)">*</span>' : ''}</label><div class="inp"${bad ? ' style="border-color:var(--bad)"' : ''}>${ctl}${opt.u ? `<span class="u">${opt.u}</span>` : ''}</div>${bad ? '<div class="small" style="color:var(--bad)">Zadej číslo.</div>' : opt.hint ? `<div class="small muted">${opt.hint}</div>` : ''}</div>`;
+}
+PANELS.pruvodce = () => {
+  const w = W(), K = FVEPRUVODCE.KROKY, miss = FVEPRUVODCE.chybi(w), k = Math.min(K.length - 1, w.krok || 0);
+  const stepper = `<ol class="stepper">${K.map((n, i) => { const m = miss.filter(x => x.krok === i).length; return `<li><button data-wstep="${i}" aria-current="${i === k ? 'step' : 'false'}" class="${i < k ? 'done' : ''}"><span class="no">${i + 1}</span><span>${n}</span>${m && i < 6 ? `<span class="chip warn">${m}</span>` : ''}</button></li>`; }).join('')}</ol>`;
+  let body = '';
+  const C2 = C;
+  if (k === 0) body = sec('Dům a kontakt', 'Komu elektrárnu naceňujeme. Údaje se propíšou do výstupu pro zákazníka.', `<div class="grid">
+    ${wfld('adresa', 'Adresa domu', { text: 1 })}${wfld('kontakt', 'Kontaktní osoba', { text: 1 })}${wfld('funkce', 'Funkce', { text: 1 })}
+    ${wfld('top', 'Technicko obchodní poradce', { options: ['', ...C2.kontakty.top.map(x => x[0])] })}${wfld('pripravar', 'Přípravář', { options: ['vyber', ...C2.kontakty.pripravari] })}</div>`);
+  if (k === 1) body = sec('Budova', 'Rozměry a rozvody určují délky kabelů, svodů a propojení – tedy velkou část ceny montáže.', `<div class="grid">
+    ${wfld('vyska', 'Výška budovy', { u: 'm', req: 1 })}${wfld('delka', 'Délka budovy', { u: 'm', req: 1 })}${wfld('sirka', 'Šířka budovy', { u: 'm', req: 1 })}
+    ${wfld('vchody', 'Počet vchodů', { u: 'ks', req: 1 })}${wfld('podlazi', 'Počet podlaží (na vchod)', { u: 'ks', req: 1 })}
+    ${wfld('stoupacky', 'Děláme nové stoupačky?', { options: yn })}${wfld('rozvadece', 'Děláme nové bytové rozvaděče?', { options: yn })}
+    ${wfld('stareRozvadece', 'Stávající patrové rozvaděče nevyhovují?', { options: yn, hint: 'ano = počítá se úprava rozvaděčů (vchody × podlaží)' })}</div>`);
+  if (k === 2) body = sec('Byty a spotřeba', 'Roční spotřeby najdeš ve vyúčtování nebo v podkladech od správce. Stačí součty za celý dům.', `<div class="grid">
+    ${wfld('bj', 'Počet bytových jednotek', { u: 'ks', req: 1 })}${wfld('spolMista', 'Elektroměry společných prostor', { u: 'ks' })}
+    ${wfld('spotrByty', 'Spotřeba všech bytů', { u: 'MWh/rok', req: w.produkty['JOM'] || w.sdileni === 'ano', hint: 'potřeba pro JOM a sdílení' })}${wfld('spotrSpol', 'Spotřeba společných prostor', { u: 'MWh/rok', req: 1 })}
+    ${wfld('cenaKwh', 'Průměrná cena elektřiny', { u: 'Kč/kWh', req: 1, hint: 'včetně distribuce a DPH' })}${wfld('profil', 'Profil spotřeby', { options: ['běžný', 'TČ/el. topení'] })}</div>`);
+  if (k === 3) {
+    const sum = w.navrh.reduce((a, r) => a + num(r.panely), 0);
+    body = sec('Střecha a panely', 'Rozmísti panely v SolarEdge Designeru a přepiš sem, kolik se jich vejde na jednotlivé strany. Průvodce z toho spočítá variantu „plná střecha“ a menší variantu podle spotřeby.', `<div class="grid">
+      ${wfld('strecha', 'Typ střechy', { options: [['VZ', 'plochá – východ/západ'], ['J', 'plochá – jih'], ['šikmá', 'šikmá']] })}
+      ${wfld('kotveni', 'Kotvení na ploché střeše', { options: ['přitížení dlažbou', 'fix profily', 'solatech'] })}
+      ${wfld('sklon', 'Sklon panelů', { u: '°' })}${w.strecha === 'šikmá' ? wfld('azimut', 'Azimut', { u: '°', hint: '180 = jih' }) : ''}</div>
+      <div class="tw" style="max-width:560px"><table><thead><tr><th>Strana / pole</th><th class="n">Max. panelů</th></tr></thead><tbody>
+      ${w.navrh.map((n, i) => `<tr><td><input class="ci" style="text-align:left;font-family:var(--f-body)" id="wn-${i}-strana" data-wn="${i}" data-wk="strana" value="${esc(n.strana)}" placeholder="např. V" aria-label="Strana ${i + 1}"></td><td><input class="ci" id="wn-${i}-panely" data-wn="${i}" data-wk="panely" inputmode="numeric" value="${esc(n.panely)}" aria-label="Panely ${i + 1}"></td></tr>`).join('')}
+      </tbody><tfoot><tr class="tot"><td>Celkem na střeše</td><td class="n">${fmt(sum)} ks · ${n2(sum * FVE.kwpPanelu(C))} kWp</td></tr></tfoot></table></div>
+      <div class="grid">${wfld('panelyFasada', 'Panely na fasádě (navíc)', { u: 'ks' })}${wfld('leseni', 'Lešení pro fasádu', { u: 'm²' })}
+      ${wfld('jom', 'Počet sjednocených míst / FVE', { u: 'ks', hint: `jedna FVE unese max. ${Math.max(...Object.values(C.stridace).filter(s => s.dostupny !== false).map(s => s.panely))} panelů` })}</div>`);
+  }
+  if (k === 4) body = sec('Produkty a práce s přetoky', 'Zaškrtni produkty, které pro dům připadají v úvahu. Průvodce z každého udělá variantu podle spotřeby a variantu s plnou střechou.', `
+    <div class="btnrow">${FVE.PRODUKTY.map(p => `<label class="chk prod"><input type="checkbox" id="wp-${p.replace(/\W/g, '')}" data-wp="${esc(p)}" ${w.produkty[p] ? 'checked' : ''}> <span><b>${p === 'Spol. prostory' ? 'Spol. prostory s baterií' : p}</b><br><span class="small muted">${p === 'JOM' ? 'sjednocení odběrných míst – FVE pro byty i společné prostory, dotace na byty' : p === 'Spol. prostory' ? 'FVE a baterie jen pro společné prostory' : 'nejlevnější – FVE jen pro společné prostory, bez baterie'}</span></span></label>`).join('')}</div>
+    <div class="grid">${wfld('tuv', 'Ohřev TUV z přetoků (dům má plynový ohřev TUV)', { options: yn })}
+    ${w.tuv === 'ano' ? wfld('tuvNaklady', 'Náklady na ohřev TUV', { u: 'Kč/rok' }) + wfld('tuvM3', 'Spotřeba plynu na TUV', { u: 'm³/rok', req: 1 }) + wfld('tuvGJ', '… nebo teplo', { u: 'GJ/rok' }) : ''}
+    ${wfld('sdileni', 'Sdílení přetoků do bytů (u společných prostor)', { options: yn })}</div>`);
+  if (k === 5) body = sec('Ekonomika', 'Předpoklady pro porovnání variant. Výchozí hodnoty můžeš nechat.', `<div class="grid">
+    ${wfld('dotace', 'Počítat s dotací NZÚ', { options: yn, hint: 'ano = od investice se odečte vypočtený nárok (max. 50 % ceny)' })}
+    ${wfld('vykupKwh', 'Výkupní cena přetoků', { u: 'Kč/kWh' })}${wfld('provozni', 'Provozní náklady', { u: 'Kč/rok' })}
+    ${wfld('horizont', 'Hodnotit na', { u: 'let' })}${wfld('diskont', 'Diskontní sazba', { u: '%' })}${wfld('rustCen', 'Růst cen elektřiny', { u: '%/rok' })}${wfld('degradace', 'Degradace panelů', { u: '%/rok' })}
+    ${wfld('kriterium', 'Doporučit podle', { options: Object.entries(FVEPRUVODCE.KRITERIA).map(([a, b]) => [a, b.nazev]) })}</div>`);
+  if (k === 6) body = wizVysledky(w, miss);
+  const nav = `<div class="btnrow wiznav">${k > 0 ? '<button class="btn" id="wizPrev">← Zpět</button>' : ''}${k < K.length - 1 ? `<button class="btn primary" id="wizNext">${k === K.length - 2 ? 'Spočítat varianty →' : 'Další →'}</button>` : ''}<span class="small muted">Údaje se ukládají průběžně do projektu.</span></div>`;
+  return stepper + body + nav;
+};
+let wizCache = { key: null, res: null };
+function wizEval(w) { const key = JSON.stringify([w, C.id, C.parametry]); if (wizCache.key !== key) wizCache = { key, res: FVEPRUVODCE.vyhodnot(w, C) }; return wizCache.res; }
+function wizVysledky(w, miss) {
+  if (miss.length) return sec('Varianty a doporučení', '', `<div class="banner warn"><span>Pro výpočet ještě chybí: ${miss.map(m => `<a href="#" data-wgo="${m.krok}">${esc(m.text)}</a>`).join(', ')}.</span></div>`);
+  const r = wizEval(w);
+  if (!r.list.length) return sec('Varianty a doporučení', '', '<div class="note warn">Z vybraných produktů nevznikla žádná varianta – zkontroluj počet panelů a produkty.</div>');
+  const sel = w.vybrane && w.vybrane.length ? w.vybrane : r.list.filter(x => !x.chyby.length).slice(0, 3).map(x => x.id);
+  const card = x => { const s = x.R.souhrn, e = x.E, best = r.best && x.id === r.best.id, on = sel.includes(x.id);
+    return `<article class="vcard${best ? ' rec' : ''}${x.chyby.length ? ' err' : ''}"><header><label class="chk"><input type="checkbox" id="ws-${x.id.replace(/\W/g, '')}" data-wsel="${esc(x.id)}" ${on ? 'checked' : ''} ${x.chyby.length ? 'disabled' : ''}> <b>${esc(x.nazev)}</b></label>${best ? '<span class="chip ok">Doporučeno</span>' : ''}</header>
+    <div class="chips">${(r.stitky[x.id] || []).map(t => `<span class="chip info">${t}</span>`).join('')}</div>
+    <div class="vbig">${fmt(e.investice)} Kč<span class="small muted"> ${w.dotace === 'ano' ? 'investice po dotaci' : 'investice s DPH'}</span></div>
+    ${kv([['Výkon / panely', `${n2(s.D26)} kWp / ${fmt(s.D27)} ks`], ['Baterie', s.D28 ? n2(s.D28) + ' kWh' : 'bez baterie'], ['Cena s DPH', kc(x.R.cenik.F47)], ['Dotace', kc(x.R.dotace.E56)], ['Roční přínos', kc(e.usporaNakup + e.vynosPretoky), 'strong'], ['Prostá návratnost', yrs(e.prostaNavratnost), 'strong'], [`NPV za ${e.horizont} let`, kc(e.npv)], ['Soběstačnost (simulace)', pct(x.S.sobestacnost)], ['Úspora na byt / rok', kc(x.R.souhrn.D9 ? (e.usporaNakup + e.vynosPretoky) / x.R.souhrn.D9 : 0)]])}
+    ${x.varovani.length ? `<details><summary class="small">Upozornění (${x.varovani.length})</summary>${notes(x.varovani)}</details>` : ''}</article>`; };
+  return `${r.best ? `<div class="recbox"><div class="small muted">Doporučená varianta</div><h2>${esc(r.best.nazev)}</h2><p>${esc(r.duvod)}</p></div>` : '<div class="note warn">Žádná varianta nevyšla bez chyby.</div>'}
+    <section class="sec"><div class="sechead"><h2>Všechny spočítané varianty</h2><p>Zaškrtni 2–3 varianty, které chceš zákazníkovi ukázat, a vytvoř je v projektu. Tam je můžeš doladit, potvrdit rozpočet a vytisknout report.</p></div>
+    <div class="vcards">${r.list.map(card).join('')}</div>
+    <div class="btnrow"><label class="chk"><input type="radio" name="wmode" id="wm-nahradit" value="nahradit" checked> nahradit stávající varianty projektu</label><label class="chk"><input type="radio" name="wmode" id="wm-pridat" value="pridat"> přidat ke stávajícím</label>
+    <button class="btn primary" id="wizApply">Vytvořit vybrané varianty (${sel.length})</button></div></section>`;
+}
+function wizApply() {
+  const w = W(), r = wizEval(w), sel = (w.vybrane && w.vybrane.length ? w.vybrane : r.list.filter(x => !x.chyby.length).slice(0, 3).map(x => x.id));
+  const chosen = r.list.filter(x => sel.includes(x.id) && !x.chyby.length);
+  if (!chosen.length) { setStatus('Vyber alespoň jednu variantu.'); return; }
+  const mode = (document.querySelector('input[name="wmode"]:checked') || {}).value || 'nahradit';
+  const nove = chosen.map(x => ({ id: ST.uid('v'), nazev: (r.best && x.id === r.best.id ? '★ ' : '') + x.nazev, inputs: normInputs(ST.clone(x.I), C), rozpPotvrzeno: null }));
+  if (mode === 'nahradit') { P.varianty = nove; P.ulozeneVstupy = {}; } else P.varianty.push(...nove);
+  const rec = nove.find(v => v.nazev.startsWith('★')) || nove[0];
+  P.aktivni = rec.id; V = rec; I = rec.inputs;
+  if (!P.nazev && w.adresa) P.nazev = w.adresa;
+  logAdd('Varianty z průvodce', `${mode === 'nahradit' ? 'nahrazeny' : 'přidány'}: ${nove.map(v => v.nazev).join(', ')}; kritérium ${r.kriterium}`);
+  tab = 'varianty'; changed(true); setStatus('Varianty vytvořeny – doporučená je otevřená.');
+}
+
 // ---- administrace ----
 function admLoad(id) { const cs = ST.ceniky(); const c = cs.seznam.find(x => x.id === id) || cs.seznam[0]; admDraft = ST.clone(c); admSel = c.id; admDraft._puvodniId = c.id; }
 function admGet(path) { return path.split('.').reduce((o, k) => o == null ? o : o[k], admDraft); }
@@ -612,6 +699,10 @@ document.addEventListener('input', e => {
   else if (el.dataset.aflag) { const p = admDraft.polozky[+el.dataset.aflag]; const f = (p.varianty || '.........').split(''); f[+el.dataset.fi] = el.checked ? '1' : '.'; p.varianty = f.join(''); }
   else if (el.dataset.sdost) { admDraft.stridace[el.dataset.sdost].dostupny = el.checked; }
   else if (el.dataset.prip) { admDraft.kontakty.pripravari = el.value.split('\n').map(x => x.trim()).filter(Boolean); }
+  else if (el.dataset.w) { W()[el.dataset.w] = el.value; dirty = true; persistDraft(); setStatus(); clearTimeout(tmr); tmr = setTimeout(render, el.tagName === 'SELECT' ? 0 : 400); }
+  else if (el.dataset.wn != null) { W().navrh[+el.dataset.wn][el.dataset.wk] = el.value; dirty = true; persistDraft(); clearTimeout(tmr); tmr = setTimeout(render, 400); }
+  else if (el.dataset.wp) { W().produkty[el.dataset.wp] = el.checked; W().vybrane = null; dirty = true; persistDraft(); render(); }
+  else if (el.dataset.wsel) { const w = W(), r = wizEval(w); let sel = w.vybrane && w.vybrane.length ? w.vybrane.slice() : r.list.filter(x => !x.chyby.length).slice(0, 3).map(x => x.id); sel = el.checked ? [...new Set([...sel, el.dataset.wsel])] : sel.filter(x => x !== el.dataset.wsel); w.vybrane = sel; persistDraft(); render(); }
   else if (el.dataset.ro) { repOpts[el.dataset.ro] = el.checked; render(); }
   else if (el.id === 'showOff') { showOff = el.checked; render(); }
 });
@@ -623,12 +714,14 @@ document.addEventListener('change', e => {
   if (el.dataset.k || el.dataset.u != null || el.dataset.nv != null || el.dataset.pq || el.dataset.pc) { clearTimeout(tmr); render(); }
   if (el.dataset.a) { clearTimeout(tmr); render(); }
 });
+document.addEventListener('click', e => { const a = e.target.closest('[data-wgo]'); if (a) { e.preventDefault(); W().krok = +a.dataset.wgo; render(); } });
 $('#tabs').addEventListener('click', e => { const b = e.target.closest('[data-tab]'); if (!b) return; tab = b.dataset.tab; persistDraft(); render(); });
 document.addEventListener('click', e => {
   const b = e.target.closest('button'); if (!b) return;
   const d = b.dataset;
   if (d.rq) { delete (I.upravy[d.rq] || {}).qty; if (I.upravy[d.rq] && !Object.keys(I.upravy[d.rq]).length) delete I.upravy[d.rq]; changed(true); }
   else if (d.rc) { delete (I.upravy[d.rc] || {}).cena; if (I.upravy[d.rc] && !Object.keys(I.upravy[d.rc]).length) delete I.upravy[d.rc]; changed(true); }
+  else if (d.wstep != null) { W().krok = +d.wstep; persistDraft(); render(); window.scrollTo(0, 0); }
   else if (d.simden) { simDen = d.simden; render(); }
   else if (d.asub) { admSub = d.asub; render(); }
   else if (d.aload) { admLoad(d.aload); admSub = 'parametry'; render(); }
@@ -647,8 +740,11 @@ document.addEventListener('click', e => {
   else if (d.vdelyes) { const v = P.varianty.find(x => x.id === d.vdelyes); P.varianty = P.varianty.filter(x => x.id !== d.vdelyes); delete P.ulozeneVstupy[d.vdelyes]; logAdd('Smazána varianta', v ? v.nazev : ''); if (V.id === d.vdelyes) { V = P.varianty[0]; P.aktivni = V.id; I = V.inputs; } confirmDel = null; changed(true); }
   switch (b.id) {
     case 'btnSave': save(); break;
+    case 'wizNext': W().krok = Math.min(FVEPRUVODCE.KROKY.length - 1, (W().krok || 0) + 1); persistDraft(); render(); window.scrollTo(0, 0); break;
+    case 'wizPrev': W().krok = Math.max(0, (W().krok || 0) - 1); persistDraft(); render(); window.scrollTo(0, 0); break;
+    case 'wizApply': wizApply(); break;
     case 'btnProjects': { const dr = $('#drawer'); dr.hidden = !dr.hidden; renderProjects(); break; }
-    case 'btnNew': setProject(newBlank()); dirty = false; persistDraft(); $('#drawer').hidden = true; tab = 'vstupy'; render(); setStatus('Nový projekt – nezapomeň ho uložit.'); break;
+    case 'btnNew': setProject(newBlank()); dirty = false; persistDraft(); $('#drawer').hidden = true; tab = 'pruvodce'; render(); setStatus('Nový projekt – projdi průvodce.'); break;
     case 'btnExample': setProject(newExample()); dirty = true; persistDraft(); $('#drawer').hidden = true; render(); setStatus('Načten ukázkový dům (příklad) – není uložený.'); break;
     case 'btnDup': { const p = ST.clone(P); p.id = ST.uid('p'); p.nazev = (P.nazev || 'Projekt') + ' – kopie'; p.vytvoreno = Date.now(); p.upraveno = null; p.log = [{ t: Date.now(), akce: 'Projekt zkopírován', detail: 'z ' + (P.nazev || '') }]; setProject(p); save(); renderProjects(); break; }
     case 'btnBackup': ST.stahni(`FVE_zaloha_${new Date().toISOString().slice(0, 10)}.json`, JSON.stringify({ typ: 'fve-zaloha', verze: 2, datum: new Date().toISOString(), projekty: Object.values(ST.projekty()), ceniky: ST.ceniky() })); break;

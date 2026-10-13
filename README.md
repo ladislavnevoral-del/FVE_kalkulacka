@@ -5,6 +5,11 @@ Nahrazuje excel „1. Klasická kalkulačka FVE – verze 02.06.2026“ (IP Poln
 
 > Repozitář obsahuje nákupní ceny a kontakty obchodníků – drž ho **soukromý**.
 
+## Průvodce naceněním
+
+První záložka **Průvodce** provede přípraváře v 7 krocích: dům a kontakt → budova → byty a spotřeba → střecha a panely (ze SolarEdge Designeru) → produkty a přetoky → ekonomika → varianty.
+Z každého vybraného produktu (JOM, Spol. prostory s baterií, Spol. prostory bez baterie) spočítá variantu „podle spotřeby“ a „plná střecha“, každou celým výpočtem podle Excelu (rozpočet, dotace, bilance) a hodinovou simulací. Varianty seřadí podle zvoleného kritéria (NPV, návratnost, investice, soběstačnost), **doporučí nejlepší** a vybrané 2–3 vytvoří v projektu k doladění. Baterie, která by podle vzorce z Excelu překročila maximum střídače, se omezí na maximum.
+
 ## Co aplikace umí
 
 | Kapitola zadání | Stav |
@@ -33,6 +38,7 @@ js/cenik-vychozi.js   výchozí ceník a číselníky převzaté z Excelu (verze
 js/engine.js          výpočetní jádro = přepis listů Vstupní data, Ceník, Výpočty, Výstup TOP
 js/sim.js             modelová výroba (sklon, azimut, ztráty) a hodinová simulace
 js/eko.js             ekonomické vyhodnocení (cash flow, NPV, IRR)
+js/pruvodce-jadro.js  průvodce: sestavení kandidátních variant, hodnocení a doporučení
 js/store.js           ukládání do prohlížeče, export/import, historie změn
 js/app.js             uživatelské rozhraní
 testy/                referenční domy a test shody s Excelem

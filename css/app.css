@@ -205,3 +205,27 @@ label.btn{cursor:pointer}
   .tw{overflow:visible;border:0}
   .noprint{display:none!important}
 }
+/* průvodce */
+.stepper{list-style:none;margin:0;padding:0;display:flex;flex-wrap:wrap;gap:6px;counter-reset:s}
+.stepper button{display:flex;gap:8px;align-items:center;border:1px solid var(--line);background:var(--surface);color:var(--ink-2);border-radius:999px;padding:5px 12px 5px 5px;font-weight:600;font-size:.86rem}
+.stepper .no{display:inline-grid;place-items:center;width:24px;height:24px;border-radius:50%;background:var(--surface-2);font-family:var(--f-mono);font-size:.8rem}
+.stepper button.done .no{background:var(--ok-soft);color:var(--ok)}
+.stepper button[aria-current="step"]{border-color:var(--accent);color:var(--ink);background:var(--accent-soft)}
+.stepper button[aria-current="step"] .no{background:var(--accent);color:var(--accent-ink)}
+.wiznav{border-top:1px solid var(--line-2);padding-top:14px}
+.chk.prod{align-items:flex-start;border:1px solid var(--line);border-radius:var(--r);padding:10px 12px;max-width:340px;background:var(--surface)}
+.chk.prod:has(input:checked){border-color:var(--accent);background:var(--accent-soft)}
+.recbox{border:2px solid var(--ok);background:var(--ok-soft);border-radius:var(--r);padding:16px 18px;display:grid;gap:6px}
+.recbox h2{font-size:1.35rem}.recbox p{margin:0;max-width:80ch;color:var(--ink)}
+.vcards{display:grid;grid-template-columns:repeat(auto-fill,minmax(290px,1fr));gap:14px;align-items:start}
+.vcard{border:1px solid var(--line);border-radius:var(--r);padding:14px;display:grid;gap:10px;background:var(--surface);min-width:0}
+.vcard header{display:flex;justify-content:space-between;gap:8px;align-items:flex-start}
+.vcard.rec{border:2px solid var(--ok)}
+.vcard.err{opacity:.6}
+.vcard .chips{display:flex;gap:4px;flex-wrap:wrap;min-height:4px}
+.vbig{font-family:var(--f-display);font-weight:800;font-size:1.45rem;font-variant-numeric:tabular-nums}
+.vcard .kv{grid-template-columns:minmax(0,1fr) auto}
+.vcard .kv>div{padding:5px 8px}
+.vcard .kv .k{font-size:.8rem}
+.vcard .kv .v{font-size:.82rem}
+.vcard header .chk{min-width:0}
