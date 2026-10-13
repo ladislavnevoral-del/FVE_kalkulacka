@@ -13,7 +13,7 @@
       bj: '', spolMista: '', spotrByty: '', spotrSpol: '', cenaKwh: C.parametry.cenaNakupVychozi / 1000, profil: 'běžný',
       strecha: 'VZ', sklon: 15, azimut: 180, kotveni: 'přitížení dlažbou',
       navrh: [{ strana: '', panely: '' }, { strana: '', panely: '' }, { strana: '', panely: '' }],
-      panelyFasada: '', leseni: '', jom: 1,
+      panelyFasada: '', leseni: '', jom: '',
       produkty: { 'JOM': true, 'Spol. prostory': true, 'Spol. prostory bez baterie': true },
       tuv: 'ne', tuvNaklady: '', tuvM3: '', tuvGJ: '', tuvMWh: '', sdileni: 'ne',
       vykupKwh: C.parametry.cenaVykupu / 1000, dotace: 'ano', horizont: 25, diskont: 4, rustCen: 0, degradace: 0.5, provozni: 0,
@@ -57,10 +57,13 @@
   }
   const maxNaStridac = C => Math.max(...Object.values(C.stridace).filter(s => s.dostupny !== false).map(s => s.panely));
 
+  /* Počet FVE (sjednocených míst): ruční zadání, jinak tolik, aby každou FVE unesl jeden střídač. */
+  function pocetFve(W, C, panely) { const r = Math.round(N(W.jom)); if (r > 0) return Math.min(15, r); const p = panely != null ? panely : W.navrh.reduce((a, x) => a + N(x.panely), 0) + N(W.panelyFasada); return Math.max(1, Math.min(15, Math.ceil(p / maxNaStridac(C)))); }
+
   /* Sestaví kompletní vstupy jedné varianty pro výpočetní jádro. */
   function vstupy(W, C, produkt, panelyCelkem) {
     const I = FVE.defaultInputs(C), P = C.parametry;
-    const n = Math.max(1, Math.min(15, Math.round(N(W.jom)) || 1));
+    const n = pocetFve(W, C, panelyCelkem);
     const vch = N(W.vchody), pod = N(W.podlazi);
     Object.assign(I, {
       adresa: W.adresa, kontakt: W.kontakt, funkce: W.funkce, top: W.top, pripravar: W.pripravar,
@@ -157,5 +160,5 @@
     return { list, best, stitky, duvod, kriterium: kr.nazev };
   }
 
-  root.FVEPRUVODCE = { vychozi, zVstupu, chybi, kandidati, vyhodnot, vstupy, KROKY, KRITERIA };
+  root.FVEPRUVODCE = { pocetFve, vychozi, zVstupu, chybi, kandidati, vyhodnot, vstupy, KROKY, KRITERIA };
 })(typeof window !== 'undefined' ? window : globalThis);

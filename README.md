@@ -7,8 +7,7 @@ Nahrazuje excel „1. Klasická kalkulačka FVE – verze 02.06.2026“ (IP Poln
 
 ## Průvodce naceněním
 
-První záložka **Průvodce** provede přípraváře v 7 krocích: dům a kontakt → budova → byty a spotřeba → střecha a panely (ze SolarEdge Designeru) → produkty a přetoky → ekonomika → varianty.
-Z každého vybraného produktu (JOM, Spol. prostory s baterií, Spol. prostory bez baterie) spočítá variantu „podle spotřeby“ a „plná střecha“, každou celým výpočtem podle Excelu (rozpočet, dotace, bilance) a hodinovou simulací. Varianty seřadí podle zvoleného kritéria (NPV, návratnost, investice, soběstačnost), **doporučí nejlepší** a vybrané 2–3 vytvoří v projektu k doladění. Baterie, která by podle vzorce z Excelu překročila maximum střídače, se omezí na maximum.
+Aplikace se otevře v **průvodci**: jedna otázka na obrazovku (adresa, byty, vchody, rozměry, spotřeba, cena, střecha, panely ze SolarEdge Designeru, řešení, rozvody, TUV, sdílení, dotace a priorita). Vlevo je seznam „Co ještě zadat“, který ukazuje hotové a chybějící údaje. Varianty se zobrazí až po vyplnění všeho potřebného: tři nejlepší vedle sebe, doporučená zvýrazněná s vysvětlením. Tlačítko **Vytvořit nabídku (PDF)** uloží varianty do projektu a otevře tisk; **Doladit v odborném režimu** otevře detailní záložky (rozpočet, baterie, simulace, administrace).
 
 ## Co aplikace umí
 
