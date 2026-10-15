@@ -458,7 +458,7 @@ const SCREENS = [
   { id: 'vchody', skupina: 'Dům', titulek: 'Kolik má dům vchodů a podlaží?', pole: [['vchody', 'počet vchodů'], ['podlazi', 'počet podlaží']], hotovo: w => ok(w.vchody) && ok(w.podlazi) },
   { id: 'rozmery', skupina: 'Dům', titulek: 'Jak je budova velká?', pole: [['vyska', 'výška'], ['delka', 'délka'], ['sirka', 'šířka']], hotovo: w => ok(w.vyska) && ok(w.delka) && ok(w.sirka) },
   { id: 'spotreba', skupina: 'Spotřeba', titulek: 'Kolik dům ročně spotřebuje elektřiny?', pole: [['spotrSpol', 'spotřeba společných prostor'], ['spotrByty', 'spotřeba bytů']], hotovo: w => ok(w.spotrSpol) && (!(jeJOM(w) || w.sdileni === 'ano') || ok(w.spotrByty)) },
-  { id: 'cena', skupina: 'Spotřeba', titulek: 'Kolik dům platí za elektřinu?', pole: [['cenaKwh', 'cena elektřiny']], hotovo: w => ok(w.cenaKwh) },
+  { id: 'cena', skupina: 'Spotřeba', titulek: 'Jakou má dům sazbu a cenu elektřiny?', pole: [['cena', 'sazba a cena elektřiny']], hotovo: w => FVEPRUVODCE.ceny(w).ok },
   { id: 'strecha', skupina: 'Střecha', titulek: 'Jakou má dům střechu?', pole: [['strecha', 'typ střechy']], hotovo: w => !!w.strecha },
   { id: 'panely', skupina: 'Střecha', titulek: 'Kolik panelů se na střechu vejde?', pole: [['navrh', 'počet panelů']], hotovo: w => w.navrh.some(n => ok(n.panely)) },
   { id: 'produkty', skupina: 'Řešení', titulek: 'Jaká řešení pro dům připadají v úvahu?', pole: [['produkty', 'alespoň jedno řešení']], hotovo: w => Object.values(w.produkty).some(Boolean) },
@@ -495,7 +495,7 @@ function screenBody(id, w) {
         ${odhad && !ok(w.spotrByty) ? `<button class="btn ghost" data-wset="spotrByty" data-wval="${odhad}">Nemám údaj – použít orientačně ${fmt(odhad, 1)} MWh (2 MWh na byt)</button>` : ''}
         <p class="muted">Údaje najdeš ve vyúčtování elektřiny nebo u správce domu.</p>`;
     }
-    case 'cena': return `${bigInput('cenaKwh', 'Průměrná cena za 1 kWh', 'Kč / kWh', { auto: 1, hint: 'celková cena včetně distribuce a DPH (celkem za rok ÷ spotřeba)' })}${tiles('profil', [['běžný', 'Běžná spotřeba', 'domácnosti, osvětlení, výtah'], ['TČ/el. topení', 'Topí elektřinou', 'tepelné čerpadlo, přímotopy']])}`;
+    case 'cena': return cenaScreen(w);
     case 'strecha': return `${tiles('strecha', Object.entries(ROOFS).map(([k, [t, d, a]]) => [k, t, d, a]))}
       ${w.strecha === 'šikmá' ? `<div class="row2">${bigInput('sklon', 'Sklon střechy', '°')}${bigInput('azimut', 'Natočení', '°', { hint: '180 = jih, 90 = východ, 270 = západ' })}</div>`
       : `<div class="sub2">Jak se panely na plochou střechu ukotví?</div>${tiles('kotveni', [['přitížení dlažbou', 'Přitížení dlažbou', 'standard'], ['fix profily', 'Fix profily', 'nová PVC krytina'], ['solatech', 'Solatech', 'stará krytina, slabá statika']])}`}`;
@@ -518,6 +518,35 @@ function screenBody(id, w) {
       <details class="more"><summary>Ekonomické předpoklady</summary><div class="row3">${bigInput('vykupKwh', 'Výkup přebytků', 'Kč/kWh')}${bigInput('horizont', 'Hodnotit na', 'let')}${bigInput('rustCen', 'Růst cen elektřiny', '%/rok')}${bigInput('diskont', 'Diskont', '%')}${bigInput('provozni', 'Provozní náklady', 'Kč/rok')}${bigInput('degradace', 'Degradace panelů', '%/rok')}</div></details>`;
   }
   return '';
+}
+function selW(key, label, options) { const w = W(); return `<label class="bigf sm" for="w-${key}"><span class="bl">${label}</span><span class="bigin"><select id="w-${key}" data-w="${key}">${options.map(o => { const [v, l] = Array.isArray(o) ? o : [o, o]; return `<option value="${esc(v)}"${String(v) === String(w[key]) ? ' selected' : ''}>${esc(l)}</option>`; }).join('')}</select></span></label>`; }
+function cenaScreen(w) {
+  const D = window.FVE_DISTRIBUCE, byty = jeJOM(w) || w.sdileni === 'ano';
+  let h = tiles('cenaRezim', [['sazba', 'Podle distribuční sazby', `vyber sazbu a jistič – cenu spočítám z tabulky ${esc(D.nazev)}`], ['rucne', 'Zadám cenu ručně', 'průměrná cena za kWh z vyúčtování']]);
+  if (w.cenaRezim === 'rucne') return h + bigInput('cenaKwh', 'Průměrná cena za 1 kWh', 'Kč / kWh', { auto: 1, hint: 'celková cena včetně distribuce a DPH (celkem za rok ÷ spotřeba)' }) + `<div class="sub2">Jaká je spotřeba?</div>` + tiles('profil', [['běžný', 'Běžná spotřeba', 'domácnosti, osvětlení, výtah'], ['TČ/el. topení', 'Topí elektřinou', 'tepelné čerpadlo, přímotopy']]);
+  // dostupné jističe pro zvolenou sazbu a distributora; neplatný výběr opravím na první dostupný
+  const fix = (sk, jk) => { const l = FVEDIST.jistice(w[sk], w.dist); if (l.length && !l.includes(w[jk])) w[jk] = l[0]; return l; };
+  const jSP = fix('spSazba', 'spJistic'), jBy = byty ? fix('bytySazba', 'bytyJistic') : [];
+  const sazby = D.sazby.filter(s => (D.distribuce[s].vt || {})[w.dist] != null).map(s => [s, `${s} · ${FVEDIST.tarify(s) === 2 ? 'dvoutarif' : 'jednotarif'}`]);
+  const dvaSP = FVEDIST.tarify(w.spSazba) === 2, dvaBy = byty && FVEDIST.tarify(w.bytySazba) === 2;
+  h += `<div class="sub2">Distribuční území</div>${tiles('dist', D.distributori.map(d => [d, d]))}
+    <div class="omgrid"><div class="omcard"><h3>Společné prostory</h3>${selW('spSazba', 'Sazba', sazby)}${selW('spJistic', 'Jistič', jSP)}
+      ${dvaSP ? bigInput('spNT', 'Spotřeba v nízkém tarifu', '%', { hint: 'podíl z celkové spotřeby' }) : ''}
+      <div class="small muted">${fmt(num(w.spolMista) || 1)} odběrné místo/a · ${n2(num(w.spotrSpol), 1)} MWh/rok</div></div>
+    ${byty ? `<div class="omcard"><h3>Byty (jeden byt)</h3>${selW('bytySazba', 'Sazba', sazby)}${selW('bytyJistic', 'Jistič', jBy)}
+      ${dvaBy ? bigInput('bytyNT', 'Spotřeba v nízkém tarifu', '%', { hint: 'podíl z celkové spotřeby' }) : ''}
+      <div class="small muted">${fmt(num(w.bj))} bytů · ${n2(num(w.spotrByty), 1)} MWh/rok celkem</div></div>` : ''}</div>
+    <div class="sub2">Silová elektřina (cena od obchodníka bez DPH)</div><div class="row2">${bigInput('silVT', dvaSP || dvaBy ? 'Vysoký tarif' : 'Cena', 'Kč / MWh')}${dvaSP || dvaBy ? bigInput('silNT', 'Nízký tarif', 'Kč / MWh') : ''}</div>`;
+  const c = FVEPRUVODCE.ceny(w);
+  if (c.detailSP) {
+    const k = x => n2(x / 1000, 2);
+    const row = (nm, r) => `<tr><td>${nm}</td><td class="n">${k(r.naMWh.silova)}</td><td class="n">${k(r.naMWh.distribuce)}</td><td class="n"><b>${k(r.naMWh.celkem)}</b></td><td class="n">${fmt(r.celkem)}</td></tr>`;
+    h += `<div class="tw"><table><thead><tr><th>Cena vč. DPH</th><th class="n">Silová Kč/kWh</th><th class="n">Distribuce Kč/kWh</th><th class="n">Celkem Kč/kWh</th><th class="n">Ročně Kč</th></tr></thead><tbody>
+      ${row('Společné prostory', c.detailSP)}${c.detailByty ? row('Byty', c.detailByty) : ''}</tbody>
+      ${c.detailByty ? `<tfoot><tr class="tot"><td>Dům (pro JOM)</td><td></td><td></td><td class="n">${k(c.jom)}</td><td class="n">${fmt(c.detailSP.celkem + c.detailByty.celkem)}</td></tr></tfoot>` : ''}</table></div>
+      <div class="small muted">Distribuce zahrnuje jistič, platbu za distribuci, systémové služby, OTE a POZE (${esc(window.FVE_DISTRIBUCE.nazev)}, DPH 21 %).${c.chyby.length ? ' <span style="color:var(--bad)">Chybí: ' + esc(c.chyby.join(', ')) + '.</span>' : ''}</div>`;
+  }
+  return h + `<div class="sub2">Jaká je spotřeba?</div>` + tiles('profil', [['běžný', 'Běžná spotřeba', 'domácnosti, osvětlení, výtah'], ['TČ/el. topení', 'Topí elektřinou', 'tepelné čerpadlo, přímotopy']]);
 }
 function wizResult(w) {
   const miss = wizMissing(w);

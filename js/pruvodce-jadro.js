@@ -11,6 +11,7 @@
       krok: 0, adresa: '', kontakt: '', funkce: '– předseda SVJ', top: '', pripravar: 'vyber',
       vyska: '', delka: '', sirka: '', vchody: '', podlazi: '', stoupacky: 'ne', rozvadece: 'ano', stareRozvadece: 'ne',
       bj: '', spolMista: '', spotrByty: '', spotrSpol: '', cenaKwh: C.parametry.cenaNakupVychozi / 1000, profil: 'běžný',
+      cenaRezim: 'sazba', dist: 'EG.D', spSazba: 'C 02d', spJistic: '3x25', spNT: '', bytySazba: 'D 02d', bytyJistic: '1x25', bytyNT: '', silVT: 2600, silNT: 2600,
       strecha: 'VZ', sklon: 15, azimut: 180, kotveni: 'přitížení dlažbou',
       navrh: [{ strana: '', panely: '' }, { strana: '', panely: '' }, { strana: '', panely: '' }],
       panelyFasada: '', leseni: '', jom: '',
@@ -36,13 +37,34 @@
     return W;
   }
 
+  /* Cena elektřiny domu podle distribuční sazby (FVEDIST) nebo ruční zadání.
+     Vrací Kč/MWh pro společné prostory, byty a vážený průměr pro JOM. */
+  function ceny(W) {
+    const rucne = Math.round(N(W.cenaKwh) * 1000);
+    if (W.cenaRezim === 'rucne' || !root.FVEDIST) return { ok: N(W.cenaKwh) > 0, rucne: true, sp: rucne, byty: rucne, jom: rucne, chyby: N(W.cenaKwh) > 0 ? [] : ['zadej cenu'] };
+    const chyby = [];
+    const potrebujiByty = W.produkty['JOM'] || W.sdileni === 'ano';
+    const dvaT = s => FVEDIST.tarify(s) === 2;
+    if (dvaT(W.spSazba) && !FVE.has(W.spNT)) chyby.push('podíl nízkého tarifu u společných prostor');
+    if (potrebujiByty && dvaT(W.bytySazba) && !FVE.has(W.bytyNT)) chyby.push('podíl nízkého tarifu u bytů');
+    if (!(N(W.silVT) > 0)) chyby.push('cena silové elektřiny');
+    const sp = FVEDIST.spocti({ dist: W.dist, sazba: W.spSazba, jistic: W.spJistic, mwh: N(W.spotrSpol) || 1, podilNT: W.spNT, silVT: W.silVT, silNT: W.silNT, pocetOM: N(W.spolMista) || 1 });
+    const by = potrebujiByty ? FVEDIST.spocti({ dist: W.dist, sazba: W.bytySazba, jistic: W.bytyJistic, mwh: N(W.spotrByty) || 1, podilNT: W.bytyNT, silVT: W.silVT, silNT: W.silNT, pocetOM: N(W.bj) || 1 }) : null;
+    chyby.push(...sp.chyby, ...(by ? by.chyby : []));
+    const cSP = sp.naMWh.celkem, cBy = by ? by.naMWh.celkem : cSP;
+    const mSP = N(W.spotrSpol), mBy = N(W.spotrByty);
+    const jom = by && mSP > 0 && mBy > 0 ? (sp.celkem + by.celkem) / (mSP + mBy) : cSP;
+    return { ok: !chyby.length, rucne: false, sp: Math.round(cSP), byty: Math.round(cBy), jom: Math.round(jom), detailSP: sp, detailByty: by, chyby };
+  }
+
   /* Povinné údaje po krocích – vrací seznam chybějících. */
   const KROKY = ['Dům a kontakt', 'Budova', 'Byty a spotřeba', 'Střecha a panely', 'Produkty a přetoky', 'Ekonomika', 'Varianty a doporučení'];
   function chybi(W) {
     const z = [];
     const req = (k, l, krok) => { if (!FVE.has(W[k]) || N(W[k]) <= 0) z.push({ krok, pole: k, text: l }); };
     req('vyska', 'výška budovy', 1); req('delka', 'délka budovy', 1); req('sirka', 'šířka budovy', 1); req('vchody', 'počet vchodů', 1); req('podlazi', 'počet podlaží', 1);
-    req('bj', 'počet bytových jednotek', 2); req('spotrSpol', 'spotřeba společných prostor', 2); req('cenaKwh', 'cena elektřiny', 2);
+    req('bj', 'počet bytových jednotek', 2); req('spotrSpol', 'spotřeba společných prostor', 2);
+    if (W.cenaRezim === 'rucne') req('cenaKwh', 'cena elektřiny', 2); else { const c = ceny(W); if (!c.ok) z.push({ krok: 2, pole: 'cena', text: 'sazba a cena elektřiny – ' + c.chyby.join(' ') }); }
     if (W.produkty['JOM'] || W.sdileni === 'ano') req('spotrByty', 'spotřeba bytů', 2);
     if (!W.navrh.some(n => N(n.panely) > 0)) z.push({ krok: 3, pole: 'navrh', text: 'počet panelů na střeše (ze SolarEdge Designeru)' });
     if (!Object.values(W.produkty).some(Boolean)) z.push({ krok: 4, pole: 'produkty', text: 'alespoň jeden produkt' });
@@ -78,7 +100,8 @@
     });
     // rozdělení domu na sjednocená místa (FVE) rovným dílem
     const rozdel = (celkem, k, cele) => { if (!cele) return +(celkem / n).toFixed(3); const z = Math.floor(celkem / n), r = Math.round(celkem) - z * n; return z + (k < r ? 1 : 0); };
-    const varovani = [];
+    const varovani = [], cc = ceny(W);
+    if (!cc.rucne) I.cenaSdileni = cc.byty;
     for (let k = 0; k < n; k++) {
       let pan = rozdel(panelyCelkem, k, true);
       const mx = maxNaStridac(C);
@@ -86,7 +109,7 @@
       const st = vyberStridac(C, pan);
       Object.assign(I.jednotky[k], {
         bj: rozdel(N(W.bj), k, true), spol: rozdel(N(W.spolMista), k, true), spotrByty: rozdel(N(W.spotrByty), k), spotrSpol: rozdel(N(W.spotrSpol), k),
-        cena: Math.round(N(W.cenaKwh) * 1000), vykon: +(pan * FVE.kwpPanelu(C)).toFixed(2), stridac: st || 'vyber', stringy: Math.ceil(pan / P.panelyNaString),
+        cena: produkt === 'JOM' ? cc.jom : cc.sp, vykon: +(pan * FVE.kwpPanelu(C)).toFixed(2), stridac: st || 'vyber', stringy: Math.ceil(pan / P.panelyNaString),
       });
     }
     return { I, varovani };
@@ -160,5 +183,5 @@
     return { list, best, stitky, duvod, kriterium: kr.nazev };
   }
 
-  root.FVEPRUVODCE = { pocetFve, vychozi, zVstupu, chybi, kandidati, vyhodnot, vstupy, KROKY, KRITERIA };
+  root.FVEPRUVODCE = { ceny, pocetFve, vychozi, zVstupu, chybi, kandidati, vyhodnot, vstupy, KROKY, KRITERIA };
 })(typeof window !== 'undefined' ? window : globalThis);

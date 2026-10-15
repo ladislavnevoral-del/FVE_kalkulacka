@@ -37,6 +37,8 @@ js/cenik-vychozi.js   výchozí ceník a číselníky převzaté z Excelu (verze
 js/engine.js          výpočetní jádro = přepis listů Vstupní data, Ceník, Výpočty, Výstup TOP
 js/sim.js             modelová výroba (sklon, azimut, ztráty) a hodinová simulace
 js/eko.js             ekonomické vyhodnocení (cash flow, NPV, IRR)
+js/distribuce-2026.js ceny distribuce 2026 (jističe, sazby VT/NT, systémové služby, OTE, POZE) ze sešitu Distribuce_2026_verze_1.xlsm
+js/distribuce.js      výpočet ceny elektřiny podle sazby: silová + distribuce + DPH
 js/pruvodce-jadro.js  průvodce: sestavení kandidátních variant, hodnocení a doporučení
 js/store.js           ukládání do prohlížeče, export/import, historie změn
 js/app.js             uživatelské rozhraní
@@ -45,7 +47,7 @@ testy/                referenční domy a test shody s Excelem
 
 ## Ověření proti Excelu
 
-`node testy/test-excel.js` – 4 referenční domy (JOM VZ s TUV, Spol. prostory J se sdílením, Spol. prostory bez baterie šikmá, JOM J s TUV i sdílením) vyplněné do původního `.xlsm` a přepočtené. Porovnává se 179 hodnot na dům včetně každé položky rozpočtu. Výsledek: 0 rozdílů.
+`node testy/test-excel.js` a `node testy/test-distribuce.js` (7 příkladů z listu Cena zajišťování distribuce NN, 0 rozdílů) – 4 referenční domy (JOM VZ s TUV, Spol. prostory J se sdílením, Spol. prostory bez baterie šikmá, JOM J s TUV i sdílením) vyplněné do původního `.xlsm` a přepočtené. Porovnává se 179 hodnot na dům včetně každé položky rozpočtu. Výsledek: 0 rozdílů.
 
 ## Na co dát pozor
 

@@ -300,3 +300,8 @@ details.more[open] summary{margin-bottom:14px}
 .rk dd{margin:0;font-family:var(--f-mono);font-weight:600;font-size:1.05rem}
 .wactions{display:flex;gap:12px;flex-wrap:wrap}
 @media (max-width:860px){.wlay{grid-template-columns:1fr}.wside{position:static;order:2}}
+
+.omgrid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:16px}
+.omcard{border:1px solid var(--line);border-radius:12px;padding:16px;display:grid;gap:12px;align-content:start;background:var(--surface-2)}
+.omcard h3{font-size:1rem}
+.tiles2:has(> .tile2:nth-child(5)) {grid-template-columns:repeat(auto-fit,minmax(110px,1fr))}
